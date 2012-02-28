@@ -1,0 +1,36 @@
+{% extends "site_base.html" %}
+{% load i18n %}
+{% load thumbnail %}
+
+{% block body %}
+<div id="content">
+  <div class="heading">
+    <span>Books</span><span class="divider">&raquo;</span><a href="{% url chapter chapter.id %}?p={{ p }}">{{ chapter.story }} - {{ chapter }}</a>
+  </div>
+  <ul class="single books">
+    <li>
+    {% if chapter.image %}
+		<img src="{% thumbnail chapter.image 49x70 crop %}" width="49" height="70" alt="" />
+	  	{% else %}
+	  		<img src="{{STATIC_URL}}img/mobile/nopic.jpg" width="49" height="59" alt="No Image Available" />
+	  	{% endif %}
+
+	  <span class="author">{{ chapter.story.author }}</span><br />
+	  <a class="title" href="{% url story chapter.story.id %}">{{ chapter.story }}</a>
+	</li>
+  </ul>
+</div>
+
+<div class="box">
+  <h2>Do you want to report this comment?</h2>
+  <form id="post-comment-form" method="POST" action="{% url tc_comment_report %}">
+    {% csrf_token %}
+    <fieldset>
+      <input type="submit" id="login-submit" name="choice" value="yes" />
+      <a href="{% url chapter chapter.id %}" id="login-submit">no</a>
+      <input type="hidden" name="object_id" value="{{ tc.id }}" />
+      <input type="hidden" name="next" value="{% url chapter chapter.id %}" />
+    </fieldset>
+  </form>
+</div>
+{% endblock %}

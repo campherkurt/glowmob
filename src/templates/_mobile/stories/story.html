@@ -1,0 +1,138 @@
+{% extends "site_base.html" %}
+{% load i18n %}
+{% load thumbnail %}
+{% load poll_tag %}
+{% load threadedcommentstags %}
+{% load voting_tags %}
+{% load pagination_tags %}
+{% load downloadstags %}
+{% load storytags %}
+
+{% block body %}
+{% get_comment_count for story as comment_count %}
+{% score_for_object story as vote %}
+{% get_download_count for story as download_count %}
+{% vote_by_user user on story as vote_count %}
+<div id="content">
+  <div class="heading">
+      <span><a href="{% url home %}">Home</a></span><span class="divider">&raquo;</span>
+      <a href="{% url stories %}?genre_id={{chapter.story.genre.pk}}">{{ chapter.story.genre }}</a>
+      {% if chapter.story.series %}
+      <span class="divider">&raquo;</span>
+      <a href="{% url stories %}?series_id={{chapter.story.series.pk}}">{{ chapter.story.series }}</a>
+      {% endif %}
+      <span class="divider">&raquo;</span>
+      <span>{{story.title}}</span>
+  </div>
+  <ul class="single">
+	<li>
+	  {% if story.image %}
+	  		<img src="{% thumbnail story.image 49x70 crop %}" width="49" height="70" alt="" />
+	  {% else %}
+	  		<img src="{{STATIC_URL}}img/mobile/nopic.jpg" width="49" height="59" alt="No Image Available" />	
+	  {% endif %}
+	  <span class="author">{% if story.author_url %}<a href="{{story.author_url}}">{% endif %}{{ story.author }}{% if story.author_url %}</a>{% endif %}</span><br />
+	  <a class="title" href="#">{{ story }}</a>
+	  <br class="clear" />
+	  <p><strong>About: </strong>{{ story.short_description|safe }}</p>
+	</li>
+  </ul> 
+  <div id="share">
+    <a id="comment-count" href="#comments">{{ comment_count }} {% ifequal comment_count 1 %}Comment{% else %}Comments{% endifequal %}</a>
+    {# <span class="divider">|</span> #}
+    {# <span id="like-count" >{{ vote.score }} {% ifequal vote.score 1 %}Like{% else %}Likes{% endifequal %}{% if not vote_count %} - </span><a href="{%url vote story.id %}">I Like!</a>{% else %}</span>{% endif %}<span class="divider">|</span> #}
+    {# <a href="{% url share story.id %}">Share</a> #}
+  </div>
+</div>
+{% if announcements %}
+<div id="updates">
+  <h2>Listen Up!</h2>
+  <ul class="list">
+    {% for announcement in announcements %}
+	<li>
+	  <a href="{% url announcement announcement.id %}">{{ announcement.announcement }}</a>
+	</li>
+    {% endfor %}
+  </ul>
+</div>
+{% endif %}
+<div id="chapters">
+  <ul>
+    {% if competition %}
+		<li class="featured"><a href="{% url competition story.id %}">{{ competition.title }}</a></li>
+    {% endif %}
+    {% for chapter in chapters %}
+	<li><a href="{% url chapter chapter.id %}?p={{ forloop.counter }}">{{ chapter }}</a></li>
+    {% endfor %}
+    {% if download_count > 0 %}
+    <li class="featured"><a href="{% url story_downloads story.id %}">{{ download_count }} Downloads Available</a></li>
+    {% endif %}
+    {% if static_pages %}
+	    {% for static_page in static_pages %}
+			<li class="featured"><a href="{% url static_page story.id static_page.id %}">{{ static_page.title }}</a></li>
+	    {% endfor %}
+    {% endif %}
+  </ul>
+</div>
+<p>
+
+{% if story.publisher %}
+  <b>Publisher:</b> 
+  {% if story.publisher_url %}<a href="{{story.publisher_url}}">{% endif %}
+  {{ story.publisher }}
+  {% if story.publisher_url %}</a>{% endif %}
+  <br />
+{% endif %}
+  <b>Category:</b> {{ story.genre }}
+</p>
+{% show_poll request user story %}
+<a name="comments"></a>
+<div id="comments">
+    {% autopaginate comments 6 %}
+  <h2>Comments</h2>
+  <p><b><a href="{% url comment story.id %}">Post your comment &raquo;</a></b></p>
+  <ol>
+    {% for comment in comments %}
+	<li>
+	  <span class="comment-date">{{ comment.date_submitted|date }}</span><br />
+	  <span class="comment-number">{% comment_number comment_count forloop.counter0 page_obj.number 6 %}</span>. 
+	  <span class="user-name">
+	  {% if comment.status == 2 %} <i>(Reported)</i> {% endif %}
+	  {% if comment.user.first_name %}{{ comment.user.first_name }}{% else %}Anonymous{% endif %}</span> says<br />
+	  <p>{{ comment.comment }}</p>
+	  <!--<a href="/comments/comment/{{ comment.id }}/report/">Report this comment</a>-->
+      <a href="{% url comment_report story.id comment.id %}">Report this comment</a>
+	</li>
+    {% endfor %}
+  </ol>
+  {% paginate %}
+</div>
+  {% if has_review_permission %}
+<div id="comments">
+  <h2>Reviews</h2>
+  <p><b><a href="{% url review story.id %}">Post your review &raquo;</a></b></p>
+  <ol>
+    {% for review in reviews %}
+	<li>
+	  <span class="comment-date">{{ review.created|date }}</span><br />
+	  <span class="comment-number">{% comment_number review_count forloop.counter0 review_page 6 %}</span>.
+	  <span class="user-name">
+	  {% if review.user.first_name %}{{ review.user.first_name }}{% else %}Anonymous{% endif %}</span> says<br />
+	  <p>{{ review.review }}</p>
+	</li>
+    {% endfor %}
+  </ol>
+    {% if indicator %}
+  <div class="pages">
+        {% if prev %}
+	<a href="?review_page={{ prev_page }}{% if page %}&page={{ page }}{% endif %}{% if back %}&back={{ back }}{% endif %}">&laquo; Back</a>
+        {% endif %}
+	<span>| {{ indicator }} |</span>
+        {% if next %}
+	<a href="?review_page={{ next_page }}{% if page %}&page={{ page }}{% endif %}{% if back %}&back={{ back }}{% endif %}">Next &raquo;</a>
+        {% endif %}
+  </div>
+    {% endif %}
+</div>
+  {% endif %}
+{% endblock %}

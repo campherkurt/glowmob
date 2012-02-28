@@ -1,0 +1,53 @@
+{% extends "site_base.html" %}
+{% load i18n %}
+{% load pagination_tags %}
+{% load thumbnail %}
+{% load poll_tag %}
+
+{% block body %}
+<div id="content">
+  <div class="heading">
+    {% ifequal active_filter "new" %}<span>{% else %}<a href="{% url browse %}">{% endifequal %}New Books{% ifequal active_filter "new" %}</span>{% else %}</a>{% endifequal %}<span class="divider">|</span>{% ifequal active_filter "popular" %}<span>{% else %}<a href="{% url browse %}?popular">{% endifequal %}Popular{% ifequal active_filter "popular" %}</span>{% else %}</a>{% endifequal %}
+  </div>
+  <ul class="list books">
+{% for story in stories %}
+    <li>
+      <img src="{% thumbnail story.image 49x70 crop %}" width="49" height="70" alt="" />
+	  <span class="author">{{ story.author }}</span><br />
+	  <a class="title" href="{% url story story.id %}">{{ story }}</a>
+    </li>
+{% endfor %}
+  </ul>
+</div>
+{# {% block search %} #}
+{# <div id="library-search"> #}
+{#   <h2>Search Our Library</h2> #}
+{#   <div class="padding-wrap"> #}
+{#     <form method="GET" id="library-search-form" action="{% url search %}"> #}
+{#       <fieldset> #}
+{#         {% csrf_token %} #}
+{#         {{ form }} #}
+{#         <input type="submit" id="library-search-submit" value="Search" /> #}
+{#       </fieldset> #}
+{#     </form> #}
+{#   </div> #}
+{#   <br class="clear" /> #}
+{# </div> #}
+{# {% endblock %} #}
+<div id="categories">
+  <h2>Browse Categories</h2>
+  <ul class="list">
+ {% for genre in genres %}
+    <li><a href="{% url stories %}?genre_id={{ genre.id }}">{{ genre }}</a></li>
+ {% endfor %}
+  </ul>
+</div>
+<div id="categories">
+  <h2>Browse By Lanuage</h2>
+  <ul class="list">
+ {% for language in languages %}
+    <li><a href="{% url stories %}?language_id={{ language.id }}">{{ language }}</a></li>
+ {% endfor %}
+  </ul>
+</div>
+{% endblock %}

@@ -1,0 +1,72 @@
+{% extends "site_base.html" %}
+
+{% load i18n %}
+{% load pagination_tags %}
+{% load thumbnail %}
+{% load threadedcommentstags %}
+{% load voting_tags %}
+{% load downloadstags %}
+
+{% block head_title %}{% trans "Stories" %}{% endblock %}
+
+{% block body %}
+{% get_comment_count for story as comment_count %}
+{% score_for_object story as vote %}
+{% get_download_count for story as download_count %}
+<h1>
+  <a href="{% url genres %}">Books</a>&nbsp;&raquo;&nbsp;{{ story.genre }}
+</h1>
+<div id="story">
+  <dl>
+    <dt>
+      <img width="40" height="40" alt="x" src="{% thumbnail story.image 40x40 crop %}" />
+    </dt>
+    <dd>
+      <span class="author">{{ story.author }}</span><br />
+      {{ story }}
+    </dd>
+  </dl>
+  <p>{{ story.short_description }}</p>
+  <h1 style="background-color: #fff; font-size: 8px; padding: 10px 5px;">
+    <span><a href="{% url share story.id %}">Share</a></span>
+    <span><img src="{{ STATIC_URL }}img/heart.jpg" style="margin-right: 5px;"/>{{ vote.score }} {% ifequal vote.score 1 %}Like{% else %}Likes{% endifequal %} - <a href="{%url vote story.id %}">I like</a></span>
+    <span style="border-right: none;"><a href="#"><img src="{{ STATIC_URL }}img/comment.jpg" style="margin-right: 5px;"/>{{ comment_count }} {% ifequal comment_count 1 %}Comment{% else %}Comments{% endifequal %}</a></span>
+  </h1>
+  <ul>
+{% if competition %}
+    <li style="background-color: #ebebeb;">
+      <a href="{% url competition story.id %}">* Prioritised Competition Link *</a>
+    </li>
+{% endif %}
+    {% for chapter in chapters %}
+    <li style="background-color: #fafafa;">
+      <a href="{% url chapter chapter.id %}?p={{ forloop.counter }}">{{ chapter }}</a>
+    </li>
+    {% endfor %}
+    <li style="background-color: #ebebeb;">
+      <a href="{% url story_downloads story.id %}">{{ download_count }} Downloads Available</a>
+    </li>
+    <li style="background-color: #ebebeb;">
+      <a href="#">Static Page Link</a>
+    </li>
+  </ul>
+</div>
+<div id="comments">
+  <span id="heading">Comments TTTT</span><br />
+  <a href="{% url comment story.id %}" style="text-decoration: none;">Post your comment &raquo;</a>
+    {% autopaginate comments 3 %}
+  <ul style="padding-bottom: 0;">
+    <li>
+    {% for comment in comments %}
+      <ul>
+        <li class="date">{{ comment.date_submitted|date }}</li>
+        <li class="username">TTTT{% if comment.user %}{{ comment.user }}{% else %}Anonymous{% endif %} says</li>
+        <li>{{ comment.comment }}</li>
+        <li><a href="/comments/comment/{{ comment.id }}/report/">Report this comment</a></li>
+      </ul>
+    {% endfor %}
+    </li>
+  </ul>
+</div>
+{% paginate %}
+{% endblock %}

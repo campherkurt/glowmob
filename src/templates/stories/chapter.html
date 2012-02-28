@@ -1,0 +1,54 @@
+{% extends "site_base.html" %}
+
+{% load i18n %}
+{% load pagination_tags %}
+{% load thumbnail %}
+{% load threadedcommentstags %}
+{% load voting_tags %}
+
+{% block head_title %}{% trans "Chapter" %}{% endblock %}
+
+{% block body %}
+{% get_comment_count for chapter as comment_count %}
+{% score_for_object chapter as vote %}
+{{ user_vote }}
+<h1>
+  <a href="{% url genres %}">Books</a>&nbsp;&raquo;&nbsp;{{ chapter.story.genre }}
+</h1>
+<div id="story">
+  <dl>
+    <dt>
+      <img width="40" height="40" alt="x" src="{% thumbnail chapter.image 40x40 crop %}" />
+    </dt>
+    <dd>
+      <span class="author">{{ chapter.story.author }}</span><br />
+      <a href="{% url story chapter.story.id %}">{{ chapter.story }}</a><br />
+      {{ chapter }}
+    </dd>
+  </dl>
+  <h1>{% if prev_chapter %}<a href="{% url chapter prev_chapter.id %}?p={{ prev_page }}">{{ prev_chapter }}</a>&nbsp;{% endif %}{{ chapter }}&nbsp;{% if next_chapter %}<a href="{% url chapter next_chapter.id %}?p={{ next_page }}">{{ next_chapter }}</a>{% endif %}</h1>
+  <h1 style="background-color: #fff; font-size: 8px; padding: 10px 5px;">
+    <span><a href="#">Share</a></span>
+    <span><img src="{{ STATIC_URL }}img/heart.jpg" style="margin-right: 5px;"/>{{ vote.score }} {% ifequal vote.score 1 %}Like{% else %}Likes{% endifequal %} - <a href="{%url chapter_vote chapter.id %}">I like</a></span>
+    <span style="border-right: none;"><a href="#"><img src="{{ STATIC_URL }}img/comment.jpg" style="margin-right: 5px;"/>{{ comment_count }} {% ifequal comment_count 1 %}Comment{% else %}Comments{% endifequal %}</a></span>
+  </h1>
+</div>
+<p>{{ chapter.short_description }}</p>
+<div id="comments">
+  <span id="heading">Comments</span><br />
+  <a href="{% url chapter_comment chapter.id %}?p={{ p }}" style="text-decoration: none;">Post your comment &raquo;</a>
+    {% autopaginate comments 3 %}
+  <ul style="padding-bottom: 0;">
+    <li>
+    {% for comment in comments %}
+      <ul>
+        <li class="date">{{ comment.date_submitted|date }}</li>
+        <li class="username">{% if comment.user %}{{ comment.user }}{% else %}Anonymous{% endif %} says</li>
+        <li>{{ comment.comment }}</li>
+      </ul>
+    {% endfor %}
+    </li>
+  </ul>
+</div>
+{% paginate %}
+{% endblock %}

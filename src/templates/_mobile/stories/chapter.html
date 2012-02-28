@@ -1,0 +1,83 @@
+{% extends "site_base.html" %}
+{% load i18n %}
+{% load thumbnail %}
+{% load threadedcommentstags %}
+{% load voting_tags %}
+{% load pagination_tags %}
+{% load storytags %}
+{% load poll_tag %}
+
+{% block body %}
+    {% get_comment_count for chapter as comment_count %}
+    {# {% score_for_object chapter as vote %} #}
+    {# {% vote_by_user user on chapter as vote_count %} #}
+<div id="content">
+  <div class="heading">
+    <span><a href="{% url home %}">Home</a></span><span class="divider">&raquo;</span>
+    <a href="{% url stories %}?genre_id={{chapter.story.genre.pk}}">{{ chapter.story.genre }}</a>
+    {% if chapter.story.series %}
+    <span class="divider">&raquo;</span>
+    <a href="{% url stories %}?series_id={{chapter.story.series.pk}}">{{ chapter.story.series }}</a>
+    {% endif %}
+    <span class="divider">&raquo;</span>
+    <span>{{chapter.story.title}}</span>
+  </div>
+  <ul class="single">
+    <li>
+      {% if chapter.story.image %}
+      	<img src="{% thumbnail chapter.story.image 128x160 crop %}" alt="" width="49" height="70" />
+      {% else %}
+      	<img src="{{STATIC_URL}}img/mobile/nopic.jpg" width="49" height="59" alt="No Image Available" />
+	  {% endif %}
+	  <span class="author">{{ chapter.story.author }}</span><br />
+	  <a class="title" href="{% url story chapter.story.id %}">{{ chapter.story }}</a>
+	  <br class="clear" />
+    </li>
+  </ul>
+  <div id="share">
+	<a id="comment-count" href="#comments">{{ comment_count }} {% ifequal comment_count 1 %}Comment{% else %}Comments{% endifequal %}</a>
+    {# <span class="divider">|</span> #}
+    {# <span id="like-count" >{{ vote.score }} {% ifequal vote.score 1 %}Like{% else %}Likes{% endifequal %}{% if not vote_count %} - </span><a href="{%url chapter_vote chapter.id %}?p={{ p }}">I Like!</a>{% else %}</span>{% endif %} #}
+    {# <span class="divider">|</span> #}
+    {# <a href="{% url chapter_share chapter.id %}?p={{ p }}">Share</a> #}
+  </div>
+</div>
+<div class="box">
+  <div id="chapter-nav">
+      <br/>
+    <strong>{{ chapter }}</strong>
+  </div>
+  <hr />
+    {% if chapter.image %}
+    <img src="{% thumbnail chapter.image 128x160 crop %}" alt="" width="128" height="160">
+    {% endif %}
+  {{ chapter.body|safe }}
+  <div id="chapter-nav">
+      {% if prev_chapter %}<a href="{% url chapter prev_chapter.id %}?p={{ prev_page }}">&laquo; {{ prev_chapter }}</a> - {% endif %}
+      {% if next_chapter %}<a href="{% url chapter next_chapter.id %}?p={{ next_page }}">{{ next_chapter }} &raquo;</a>{% endif %}
+  </div>
+</div>
+{% show_poll request user chapter %}
+<a name="comments"></a>
+<div id="comments">
+    {% autopaginate comments 6 %}
+  <h2>Comments</h2>
+  <p><b><a href="{% url chapter_comment chapter.id %}?p={{ p }}">Post your comment &raquo;</a></b></p>
+  <ol>
+    
+    {% for comment in comments %}
+	<li>
+	  <span class="comment-date">{{ comment.date_submitted|date }}</span><br />
+	  <span class="comment-number">{% comment_number comment_count forloop.counter0 page_obj.number 6 %}</span>. 
+	  <span class="user-name">
+	  {% if comment.status == 2 %} <i>(Reported)</i> {% endif %}
+	  {% if comment.user.first_name %}{{ comment.user.first_name }}{% else %}Anonymous{% endif %}</span> says<br />
+	  <p>{{ comment.comment }}</p>
+	  <a href="{% url chapter_comment_report chapter.id comment.id %}">Report this comment</a>
+	</li>
+    {% endfor %}
+    
+  </ol>
+  {% paginate %}
+</div>
+{% endblock %}

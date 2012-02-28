@@ -1,0 +1,32 @@
+{% extends "site_base.html" %}
+
+{% load i18n %}
+{% load pagination_tags %}
+{% load thumbnail %}
+
+{% block head_title %}{% trans "Stories" %}{% endblock %}
+
+{% block body %}
+<h1>
+  <a href="{% url genres %}">Books</a>&nbsp;&raquo;&nbsp;{{ chapter.story.genre }}
+</h1>
+<div id="story">
+  <dl>
+    <dt>
+      <img width="40" height="40" alt="x" src="{% thumbnail chapter.image 40x40 crop %}" />
+    </dt>
+    <dd>
+      <span class="author">{{ chapter.story.author }}</span><br />
+      <a href="{% url story chapter.story.id %}">{{ chapter.story }}</a><br />
+      {{ chapter }}
+    </dd>
+  </dl>
+</div>
+<h1>Do you like this chapter?</h1>
+<form class="form" method="POST" action="{% url chapter_vote chapter.id %}">
+    {% csrf_token %}
+  <input type="submit" name="choice" value="yes" />
+  <input type="submit" name="choice" value="no" />
+  <input type="hidden" name="next" value="{% url chapter chapter.id %}"
+</form>
+{% endblock %}

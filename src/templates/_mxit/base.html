@@ -1,0 +1,55 @@
+{% load links %}
+{% load basic_profile_tags %}
+{% load i18n %}
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<html>
+  <head>
+    <meta name="mxit" content="clearscreen" />
+    <style type="text/css">
+        body, html{
+/* uncommenting bgcolor & font color - should be left to the mxit client & per device setting. */
+/*            background-color: #000000;*/
+/*            color:                #ffffff;*/
+            font-family:      arial, tahoma, verdana;
+        }
+        /*a, a:link, a:visited, a:active {*/
+        a {
+/*            color:            #ffffff;*/
+        }
+    </style>
+  </head>
+  <body>
+    {% profilepreference display_mxit_images %}
+        <img src="{{ STATIC_URL }}img/mobile/header.jpg" /><br>
+    {% else %}
+        YOZA
+    {% endprofilepreference %}
+    {% block header %}
+    {% endblock %}
+    {% for message in messages %}
+    <strong><i>{{ message|safe }}</i></strong><br/><br/>
+    {% endfor %}
+    {% if profile and profile.last_chapter %}
+    <strong>
+        <i>
+            You last read {{profile.last_chapter.title}} of {{profile.last_story.title}},
+            <a href="{% url chapter chapter_id=profile.last_chapter.pk %}">continue reading</a>.
+        </i>
+    </strong><br/><br/>
+    {% endif %}
+
+    {% block body %}
+    {% endblock %}
+    <hr>
+    <a href="{% url home %}">{% trans "Main menu" %}</a> -
+    <a href="{% url all_stories %}">{% trans "All stories" %}</a> -
+    <a href="{% url write_story %}">{% trans "Calling All Writers" %}</a>
+    {% static_pages_links %}
+    {% profilepreference display_mxit_images %}
+        - <a href="{% url toggle_images "off" %}">{% trans "Turn Images Off" %}<a>
+    {% else %}
+        - <a href="{% url toggle_images "on" %}">{% trans "Turn Images On" %}<a>
+    {% endprofilepreference %}
+    <br><br>
+  </body>
+</html>

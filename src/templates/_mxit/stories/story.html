@@ -1,0 +1,102 @@
+{% extends "base.html" %}
+{% load basic_profile_tags %}
+{% load i18n %}
+
+{% load thumbnail %}
+{% load pagination_tags %}
+{% load poll_tag %}
+{% load downloadstags %}
+{% block header %}
+<br/>
+<strong>{% trans "Cellphone Stories" %}</strong><br><br>
+{% endblock %}
+{% block body %}
+{% get_download_count for story as download_count %}
+{% profilepreference display_mxit_images %}
+    {% if story.series %}
+        <img width="115" height="19" alt="x" src="{% thumbnail story.series.banner 115x19 crop %}" />
+    {% else %}
+        {% if story.image %}
+            <img width="40" height="40" alt="x" src="{% thumbnail story.image 40x40 crop %}" />
+        {% endif %}
+    {% endif %}
+{% else %}
+    {% if story.series %}
+        {{story.series.title|upper}}
+    {% endif %}
+{% endprofilepreference %}
+<br>
+<strong>{{ story }}</strong><br><br>
+{% if announcements %}
+	<strong>{% trans "LISTEN UP!:" %}</strong><br />
+	{% for announcement in announcements %}
+	    {{ announcement.announcement }}<br/>
+		{{ announcement.body }}<br/>
+		<br/>
+	{% endfor %}
+	<br />
+{% endif %}
+<strong>{% trans "About:" %} </strong>{{ story.short_description|safe }}<br><br>
+<strong>{% trans "Author:" %} </strong>{{ story.author }}<br>
+{% if story.publisher %}
+<strong>{% trans "Publisher:" %} </strong>{{ story.publisher }}<br>
+{% endif %}
+<strong>{% trans "Category:" %} </strong>{{ story.genre }}<br>
+
+{% if static_pages %}
+    {% for static_page in static_pages %}
+    <a href="{% url static_page story.id static_page.id %}">{{ static_page.title }}</a><br>
+	{% endfor %}
+{% endif %}
+{% if competition %}
+    {% if back %}
+<a href="{% url competition story.id %}?back={{ back }}">{% trans "Enter competition" %}</a><br>
+    {% else %}
+<a href="{% url competition story.id %}?back={% url home %}">{% trans "Enter competition" %}</a><br>
+    {% endif %}
+{% endif %}
+{% ifnotequal download_count 0 %}
+<a href="{% url story_downloads story.id %}">{% trans "Downloads" %} ({{ download_count }})</a><br/>
+{% endifnotequal %}
+<br /><br />
+{% for chapter in chapters %}
+{% trans "Read" %} <a href="{% url chapter chapter.id %}?p={{ forloop.counter }}">{{ chapter }}</a><br>
+{% endfor %}<br/><br/>
+
+<a href="{% url story_comments story.id %}">{% trans "Comments for" %} {{ story }}</a><BR>
+{% if back %}
+<a href="{% url comment story.id %}?back={{ back }}">
+{% else %}
+<a href="{% url comment story.id %}?back={% url home %}">
+{% endif %}
+
+{% trans "Post your comment" %}</a>
+{% if has_review_permission %}
+<br><br>
+<a href="{% url reviews story.id %}">{% trans "Reviews for" %} {{ story }}</a><BR>
+    {% if back %}
+<a href="{% url review story.id %}?back={{ back }}">
+    {% else %}
+<a href="{% url review story.id %}?back={% url home %}">
+    {% endif %}
+    {% trans "Post your review" %}</a>
+{% endif %}
+{% show_poll_mxit request user story %}
+<br>
+{% paginate %}
+<br>
+<br />
+{% if story.series %}
+{% trans "See" %} <a href="{% url stories %}?series_id={{ story.series.id }}">all {{ story.series }} stories</a>
+{% endif %}
+<br>
+<br />
+{% if back %}
+	<a href="{{ back }}">{% trans "Back" %}</a>
+{% else %}
+	<a href="{% url home %}">{% trans "Back" %}</a>
+{% endif %}
+<br/>
+<br/>
+<hr>
+{% endblock %}

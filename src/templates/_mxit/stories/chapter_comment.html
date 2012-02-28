@@ -1,0 +1,22 @@
+{% extends "base.html" %}
+{% load i18n %}
+
+{% block header %}
+<br/>
+<strong>{% trans "Cellphone Stories" %}</strong><br>
+{% endblock %}
+
+{% block body %}
+<h1>{% trans "Leave a comment" %}</h1>
+<form class="form" method="POST" action="{% url tc_comment content_type.id chapter.id %}">
+    {% csrf_token %}
+    {% for field in form.visible_fields %}
+        {{ field.errors }}
+        {{ field.label }}: {{ field }}<br>
+    {% endfor %}
+  <input type="submit" value="Save" />
+  <input type="hidden" name="next" value="{% url chapter chapter.id %}?p={{ p }}" />
+  <input type="hidden" name="p" value="{{ p }}" />
+  <!--<input type="hidden" name="prev" value="{% url chapter_comment chapter.id %}?error&p={{ p }}" />-->
+</form>
+{% endblock %}

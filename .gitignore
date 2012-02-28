@@ -1,0 +1,7 @@
+ve
+*.db
+src/site_media/media/
+stats
+.DS_Store
+*.pyc
+/build/

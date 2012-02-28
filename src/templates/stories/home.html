@@ -1,0 +1,50 @@
+{% extends "site_base.html" %}
+{% load i18n %}
+{% load pagination_tags %}
+{% load thumbnail %}
+{% load poll_tag %}
+
+{% block header %}
+<strong>Stories on your cellphone</strong><br>
+{% endblock %}
+
+{% block body %}
+<div id="content_block">
+	<span class="heading">New Books | <a href="#">Popular Now</a></span>
+	
+    <div id="stories">
+    {% for story in stories %}
+      <dl>
+        <dt>
+          <img width="36" height="36" alt="x" src="{% thumbnail story.image 36x36 crop %}" />
+        </dt>
+        <dd>
+          <span class="author">{{ story.author }}</span><br />
+          <a href="{% url story story.id %}">{{ story }}</a>
+        </dd>
+      </dl>
+      
+    {% endfor %}
+    </div>
+</div>
+{% if announcements %}
+	<div id="content_block">
+		<span class="heading">Updates</span>
+		
+	    <div id="stories">
+	    {% for announcement in announcements %}
+			<div id="item_wrapper">
+		      	<div class="announcement_time">{{ announcement.created|timesince}} ago</div>
+		      	<div class="announcement_content">
+		      		{% if announcement.story %}
+		      			<a href=" {% url story announcement.story.id %}" >{{ announcement.announcement }}</a>
+	      			{% else %}
+	      				{{ announcement.announcement }}
+	      			{% endif %}
+	      		</div>
+	      	</div>
+	    {% endfor %}
+	    </div>
+	</div>
+{% endif %}
+{% endblock %}

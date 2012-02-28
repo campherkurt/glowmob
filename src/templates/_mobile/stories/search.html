@@ -1,0 +1,27 @@
+{% extends "site_base.html" %}
+{% load i18n %}
+{% load pagination_tags %}
+{% load thumbnail %}
+{% load poll_tag %}
+
+{% block body %}
+{#     {% autopaginate stories 10 %} #}
+{# <div class="heading"> #}
+{#   <span>Search</span><span class="divider">&raquo;</span><span>{{ search }}</span> #}
+{# </div> #}
+{# <p id="search-results">{{ count }} {% ifequal count 1 %}result{% else %}results{% endifequal %} found</p> #}
+{# <ul class="list books"> #}
+{#     {% for story in stories %} #}
+{#   <li> #}
+{#  {% if story.image %} #}
+{#          <img src="{% thumbnail story.image 49x70 crop %}" width="49" height="70" alt="" /> #}
+{#    {% else %} #}
+{#          <img src="{{STATIC_URL}}img/mobile/nopic.jpg" width="49" height="59" alt="No Image Available" />     #}
+{#    {% endif %} #}
+{#     <span class="author">{{ story.author }}</span><br /> #}
+{#  <a class="title" href="{% url story story.id %}">{{ story }}</a> #}
+{#   </li> #}
+{#     {% endfor %} #}
+{# </ul> #}
+{# {% paginate %} #}
+{% endblock %}

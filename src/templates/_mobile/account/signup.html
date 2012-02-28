@@ -1,0 +1,40 @@
+{% extends "site_base.html" %}
+{% load i18n %}
+
+{% block body %}
+<div id="content">
+  <h2>Join the Yoza Community</h2>
+  <div class="padding-wrap">
+    <!--<h3>Optional: Join Using Facebook</h3>
+	<a href="#"><img src="{{ STATIC_URL }}img/mobile/facebook.jpg" alt="" /></a>
+	<hr />-->
+	<p><b>Please create an account so that you can comment and enter the competitions. Join up now (and link this to the join up page) or log in below.</b></p>
+    <p><b>* = You must enter this info</b></p>
+	<form method="POST" id="sign-up-form" action="{% url acct_signup %}">
+	  <fieldset>
+	{% csrf_token %}
+    {% for field in form.visible_fields %}
+        {{ field.errors }}
+        {% ifequal field.name "terms" %}
+        <a href="{% url view_static_page 10 %}">I agree to the Yoza Terms of Use</a><br class="clear" />
+        {% else %}
+        {{ field.label_tag }}<br class="clear" />
+        {% endifequal %}
+        {{ field }}<br class="clear" />
+    {% endfor %}
+	    <input type="submit" id="sign-up-submit" value="Join" />
+	  </fieldset>
+	</form>
+  </div>
+</div>
+{% endblock %}
+{% block extra_body %}
+    {% load jquery_validation %}
+    {% include_validation %}
+    <script type="text/javascript">
+        $(function(){
+            $('#sign-up-form').validate('{% url signup_form_validate %}', {type: 'table', fields: ['username'], dom: $('#id_username'), event: 'change'});
+            $("#id_username").focus();
+        });
+    </script>
+{% endblock %}

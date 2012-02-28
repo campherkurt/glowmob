@@ -1,0 +1,10 @@
+.pagination {
+    margin: 10px 0;
+}
+.pagination .current {
+    padding: 3px;
+}
+.pagination a {
+    padding: 3px;
+    text-decoration: none;
+}

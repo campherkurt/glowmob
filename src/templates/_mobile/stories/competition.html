@@ -1,0 +1,36 @@
+{% extends "site_base.html" %}
+{% load i18n %}
+{% load thumbnail %}
+
+{% block body %}
+<div id="content">
+  <div class="heading">
+    <span>Books</span><span class="divider">&raquo;</span><a href="{% url story competition.story.id %}">{{ competition.story }}</a>
+  </div>
+  <ul class="single books">
+    <li>
+	  <img src="{% thumbnail competition.story.image 49x70 crop %}" alt="" width="49" height="70" />
+	  <span class="author">{{ competition.story.author }}</span><br />
+	  <a class="title" href="{% url story competition.story.id %}">{{ competition.story }}</a>
+	</li>
+  </ul>
+</div>
+
+<div class="box">
+  <h2>{{ competition }}</h2>
+  <br>{{ competition.description|safe }}<br>
+  <form id="post-comment-form" method="POST" action="{% url competition competition.story.id %}">
+	<fieldset>
+    {% csrf_token %}
+    {% for field in form.visible_fields %}
+        {{ field.errors }}
+        {{ field.label_tag }}<br class="clear" />
+        {{ field }}<br class="clear" />
+    {% endfor %}
+      <input type="submit" id="login-submit" value="Enter" />
+      <input type="hidden" name="next" value="{% url story competition.story.id %}?back={{ back }}" />
+      <input type="hidden" name="back" value="{{ back }}" />
+	</fieldset>
+  </form>
+</div>
+{% endblock %}

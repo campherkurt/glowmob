@@ -1,0 +1,20 @@
+{% extends "base.html" %}
+
+{% block header %}
+<br/>
+<strong>Cellphone Stories</strong><br>
+{% endblock %}
+
+{% block body %}
+<h1>All stories: By Title</h1>
+View titles starting with: <br>
+<a href="{% url stories_by_author_range %}?r=a-e">A - E</a><br>
+<a href="{% url stories_by_author_range %}?r=f-j">F - J</a><br>
+<a href="{% url stories_by_author_range %}?r=k-o">K - O</a><br>
+<a href="{% url stories_by_author_range %}?r=p-t">P - T</a><br>
+<a href="{% url stories_by_author_range %}?r=u-z">U - Z</a><br>
+<br>
+<a href="{% url all_stories %}">Back</a>
+<br>
+<br>
+{% endblock %}

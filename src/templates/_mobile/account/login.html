@@ -1,0 +1,22 @@
+{% extends "site_base.html" %}
+{% load i18n %}
+
+{% block body %}
+<div id="content">
+  <h2>{% trans "Log In" %}</h2>
+  <div class="padding-wrap">
+    <form method="POST" id="login" action="{% url acct_login %}">
+	  <fieldset>
+    {% csrf_token %}
+    {% for field in form.visible_fields %}
+        {{ field.errors }}
+        {{ field.label_tag }}<br class="clear" />
+        {{ field }}<br class="clear" />
+    {% endfor %}
+		<input type="submit" id="login-submit" value="Sign In" />
+		<p>Forgotten your password? <a href="{% url acct_passwd_reset %}"><b>Recover it!</b></a></p>
+	  </fieldset>
+	</form>
+  </div>
+</div>
+{% endblock %}

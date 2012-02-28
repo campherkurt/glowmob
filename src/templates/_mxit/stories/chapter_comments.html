@@ -1,0 +1,59 @@
+{% extends "base.html" %}
+{% load basic_profile_tags %}
+
+{% load thumbnail %}
+{% load i18n %}
+{% load pagination_tags %}
+{% load poll_tag %}
+{% block header %}
+<br/>
+<strong>{% trans "Cellphone Stories" %}</strong><br><br>
+{% endblock %}
+{% block body %}
+{% profilepreference display_mxit_images %}
+    {% if chapter.story.series %}
+        <img width="115" height="19" alt="x" src="{% thumbnail chapter.story.series.banner 115x19 crop %}" />
+    {% else %}
+        {% if chapter.story.image %}
+            <img width="40" height="40" alt="x" src="{% thumbnail chapter.story.image 40x40 crop %}" />
+        {% endif %}
+    {% endif %}
+{% else %}
+    {% if chapter.story.series %}
+        {{chapter.story.series.title|upper}}
+    {% endif %}
+{% endprofilepreference %}
+<br>
+<strong>{{ chapter.story }}</strong><br><br>
+
+<strong>{% trans "COMMENTS:" %}</strong><br />
+{% if comments %}
+	{% autopaginate comments 3 %}
+	<br>
+	{% for comment in comments %}
+        {% if comment.name %}
+        <strong>{{ comment.name }}</strong><br />
+        {% else %}
+            {% if comment.user %}
+        <strong>{% if comment.user.first_name %}{{ comment.user.first_name }}{% else %}{% trans "Anonymous" %}{% endif %}</strong><br />
+            {% endif %}
+        {% endif %}
+	    {{ comment.date_submitted|date:"j M Y" }}<br />
+	    {{ comment.comment }}<br />
+	    <br/>
+	{% endfor %}
+	{% paginate %}<br/><br/>
+{% else %}
+	<i>{% trans "No comments posted." %}</i><br/>
+{% endif %}
+
+<a href="{% url chapter_comment chapter.id %}?p={{p}}&back={{ back }}">{% trans "Post your comment" %}</a><br>
+<br>
+{% if not back %}
+<a href="{% url chapter chapter.id %}?p={{ p }}">{% trans "Back" %}</a>
+{% else %}
+<a href="{{ back }}">{% trans "Back" %}</a>
+{% endif %}
+<br/>
+<br/>
+{% endblock %}

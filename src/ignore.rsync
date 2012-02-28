@@ -1,0 +1,11 @@
+.hg/*
+*.pyc
+site_media/media*
+site_media/static/geoip*
+djapian_spaces/*
+django*
+*.dat
+*.sql
+*.sql.*
+fabfile.py
+local_settings.py

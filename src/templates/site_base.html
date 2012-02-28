@@ -1,0 +1,62 @@
+{% extends "base.html" %}
+
+{% load i18n %}
+{% load account_tags %}
+{% load openid_tags %}
+{% load ifsetting_tag %}
+{% load analytics %}
+{% load links %}
+{% load poll_tag %}
+
+
+{% block extra_head_base %}
+    <link rel="stylesheet" href="{{ STATIC_URL }}css/site_tabs.css" />
+    <link rel="stylesheet" href="{{ STATIC_URL }}pinax/css/avatar.css" />
+    <link rel="stylesheet" href="{{ STATIC_URL }}pinax/css/blogs.css" />
+    <link rel="stylesheet" href="{{ STATIC_URL }}pinax/css/comments.css" />
+    <link rel="stylesheet" href="{{ STATIC_URL }}pinax/css/friends.css" />
+    <link rel="stylesheet" href="{{ STATIC_URL }}pinax/css/groups.css" />
+    <link rel="stylesheet" href="{{ STATIC_URL }}pinax/css/locations.css" />
+    <link rel="stylesheet" href="{{ STATIC_URL }}pinax/css/messages.css" />
+    <link rel="stylesheet" href="{{ STATIC_URL }}pinax/css/microblogging.css" />
+    <link rel="stylesheet" href="{{ STATIC_URL }}css/pagination.css" />
+    <link rel="stylesheet" href="{{ STATIC_URL }}pinax/css/photos.css" />
+    <link rel="stylesheet" href="{{ STATIC_URL }}pinax/css/tabs.css" />
+    <link rel="stylesheet" href="{{ STATIC_URL }}pinax/css/topics.css" />
+    <link rel="stylesheet" href="{{ STATIC_URL }}pinax/css/wiki.css" />
+    <link rel="stylesheet" href="{{ STATIC_URL }}pinax/css/jquery.autocomplete.css" />
+    <link rel="stylesheet" href="{{ STATIC_URL }}bookmarks/css/bookmarks.css" />
+    {% block extra_head %}{% endblock %}
+{% endblock %}
+
+
+
+{% block login %}
+    {% if user.is_authenticated %}
+        {% ifopenid %}<img src="{{ STATIC_URL }}images/openid-icon.png" alt="Logged in with OpenID" />{% endifopenid %}<b>{% user_display user %}</b> | <a href="{% url acct_email %}">{% trans "Account" %}</a> | {% if user.is_staff %}<a href="/admin/">{% trans "Admin" %}</a> | {% endif %}<a href="/openid/logout/?next={% url acct_logout %}">{% trans "Logout" %}</a>
+    {% else %}
+        <a href="{% url acct_login %}">{% trans "Login" %}</a> {% ifsetting ACCOUNT_OPEN_SIGNUP %}{% trans "or" %} <a href="{% url acct_signup %}"><b>{% trans "Sign up" %}</b></a>{% endifsetting %}
+    {% endif %}
+{% endblock %}
+{% block poll %}
+	{% show_poll request user %}
+{% endblock %}
+{% block navigation %}
+<div id="content_block">
+	<div><a href="/">HOME</a></div>
+	<div><a href="/stories/browse">BROWSE BOOKS</a></div>
+	<div><a href="/stories/updates">UPDATES</a></div>
+	<div><a href="#">SHARE THIS SITE</a></div>
+</div>
+{% endblock %}
+{% block footer %}
+    {% trans "&copy; 2010 The Shuttleworth Foundation" %}
+    <br />
+    {% static_pages_links %}
+{% endblock %}
+
+{% block extra_body_base %}
+    {% ga %}
+    <script type="text/javascript" src="{{ STATIC_URL }}pinax/js/topics.js"></script>
+    {% block extra_body %}{% endblock %}
+{% endblock %}

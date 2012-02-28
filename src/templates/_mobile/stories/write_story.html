@@ -1,0 +1,69 @@
+{% extends "site_base.html" %}
+{% load i18n %}
+{% load thumbnail %}
+
+{% block body %}
+<div id="content">
+  <div class="heading">
+    <span><a href="{% url home %}">Cellphone Stories</a></span>
+  </div>
+</div>
+
+<div class="box">
+  &nbsp;<strong>Calling All Writers</strong>
+  {% if form.is_valid %}
+  <p>Thanks very much. Keep writing.</p>
+  {% else %}
+  <p>Got an amazing story that you'd love to see on Yoza? Read on ...</p>
+  <p>
+      <strong>How this works</strong>
+  </p>
+  <p>
+      If you write a cracking m-novel or book review then you'll be published 
+      on Yoza. Your name will be shown as the author and we'll link to one of 
+      your sites -- your blog perhaps? We won't pay you, but you'll get 
+      exposure on Yoza and great experience of writing for a youth audience 
+      on cellphones.
+  </p>
+  <p>
+      You will keep your copyright in anything original which you write, after 
+      all you won't be getting any money from us, but if its published then 
+      it will be published under a <a href="http://creativecommons.org/licenses/by-sa/2.5/za/" title="Creative Commons &mdash;
+            Attribution-ShareAlike 2.5 South Africa">Creative Commons Attribution Share Alike</a> 
+      license. That means that other people can freely copy and remix your 
+      story and even sell it but they'll have to put their efforts under the 
+      same license so that you, and anyone else can copy and remix and even 
+      sell their creations. You cannot withdraw this license, it lasts as 
+      long as the copyright does.
+  </p>
+  <p>
+      Please note that you can't transfer your copyright to anyone else for 
+      thirty days from submission, after that, then whether or not it is 
+      published by Yoza you can transfer the copyright. There are more 
+      detailed <a href="/static_pages/view/11">legal terms here</a>. 
+      Please read them carefully.
+  </p>
+  <p>
+      Last thing: please read the <strong><a href="/static_pages/view/14/">Yoza Manifesto</a></strong> -- it explains how to write for Yoza and what kind of stories we publish.
+  </p>
+  <form id="post-comment-form" method="POST" action="{% url write_story %}">
+    <fieldset>
+          {% csrf_token %}
+          {% for field in form.visible_fields %}
+            {% ifequal field.label 'Terms' %}
+                {{field.errors}}
+                <p>{{ field }} I agree to the <a href="/static_pages/view/11">legal terms</a> of 
+                submitting my writing and also the Yoza <a href="/static_pages/view/10">Terms of Use</a></p>
+            {% else %}
+                {{ field.errors }}
+                {{ field.label_tag }}<br class="clear" />
+                {{ field }}<br class="clear" />
+            {% endifequal %}
+          {% endfor %}
+      <input type="submit" id="login-submit" value="Send story" /> or 
+      <a href="{% url home %}">Cancel</a>
+    </fieldset>
+  </form>
+  {% endif %}
+</div>
+{% endblock %}

@@ -1,0 +1,39 @@
+{% extends "site_base.html" %}
+{% load i18n %}
+{% load thumbnail %}
+
+{% block body %}
+<div id="content">
+  <div class="heading">
+    <span>Books</span><span class="divider">&raquo;</span><a href="{% url story story.id %}">{{ story }}</a>
+  </div>
+  <ul class="single books">
+    <li>
+    	{% if story.image %}		
+		<img src="{% thumbnail story.image 49x70 crop %}" width="49" height="70" alt="" />
+	  	{% else %}
+	  		<img src="{{STATIC_URL}}img/mobile/nopic.jpg" width="49" height="59" alt="No Image Available" />	
+	  	{% endif %}
+	  <span class="author">{{ story.author }}</span><br />
+	  <a class="title" href="{% url story story.id %}">{{ story }}</a>
+	</li>
+  </ul>
+</div>
+
+<div class="box">
+  <h2>Do you like this story?</h2>
+{#  <form id="post-comment-form" method="GET" action="{% url vote story.id %}"> #}
+{#	<fieldset>#}
+{#	  {% csrf_token %}#}
+{#       {{ form }}#}
+{#      <input type="submit" id="login-submit" name="choice" value="yes" />#}
+{#      <input type="submit" id="login-submit" name="choice" value="no" />#}
+{#      <input type="hidden" name="next" value="{% url story story.id %}"#}
+{#	</fieldset>#}
+{#  </form>#}
+    <fieldset>
+      <a href="{% url vote story.id %}?choice=yes&next={% url story story.id %}" id="login-submit">yes</a>
+      <a href="{% url vote story.id %}?choice=no&next={% url story story.id %}" id="login-submit">no</a>
+    </fieldset>
+</div>
+{% endblock %}

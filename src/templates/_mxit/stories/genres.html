@@ -1,0 +1,19 @@
+{% extends "base.html" %}
+
+{% block header %}
+<br/>
+<strong>Cellphone Stories</strong><br>
+{% endblock %}
+
+{% block body %}
+<h1>All stories: By Genre</h1>
+View titles by genre: <br>
+{% for genre in genres %}
+<br><a href="{% url stories %}?genre_id={{ genre.id }}">{{ genre }}</a>
+{% endfor %}
+<br>
+<br>
+<a href="{% url all_stories %}">Back</a>
+<br>
+<br>
+{% endblock %}

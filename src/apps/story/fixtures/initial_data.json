@@ -1,0 +1,134 @@
+[
+    {
+        "pk": 1,
+        "model": "story.genre",
+        "fields": {
+            "name": "Adventure",
+            "created": "2010-04-23 04:46:20",
+            "modified": "2010-04-23 04:46:20"
+        }
+    }, {
+        "pk": 2,
+        "model": "story.genre",
+        "fields": {
+            "name": "Biography & Memoir",
+            "created": "2010-04-23 04:46:20",
+            "modified": "2010-04-23 04:46:20"
+        }
+    }, {
+        "pk": 3,
+        "model": "story.genre",
+        "fields": {
+            "name": "Childrens",
+            "created": "2010-04-23 04:46:20",
+            "modified": "2010-04-23 04:46:20"
+        }
+    }, {
+        "pk": 4,
+        "model": "story.genre",
+        "fields": {
+            "name": "Classics",
+            "created": "2010-04-23 04:46:20",
+            "modified": "2010-04-23 04:46:20"
+        }
+    }, {
+        "pk": 5,
+        "model": "story.genre",
+        "fields": {
+            "name": "Comedy",
+            "created": "2010-04-23 04:46:20",
+            "modified": "2010-04-23 04:46:20"
+        }
+    }, {
+        "pk": 6,
+        "model": "story.genre",
+        "fields": {
+            "name": "Crime",
+            "created": "2010-04-23 04:46:20",
+            "modified": "2010-04-23 04:46:20"
+        }
+    }, {
+        "pk": 7,
+        "model": "story.genre",
+        "fields": {
+            "name": "Fantasy",
+            "created": "2010-04-23 04:46:20",
+            "modified": "2010-04-23 04:46:20"
+        }
+    }, {
+        "pk": 8,
+        "model": "story.genre",
+        "fields": {
+            "name": "History",
+            "created": "2010-04-23 04:46:20",
+            "modified": "2010-04-23 04:46:20"
+        }
+    }, {
+        "pk": 9,
+        "model": "story.genre",
+        "fields": {
+            "name": "Horror",
+            "created": "2010-04-23 04:46:20",
+            "modified": "2010-04-23 04:46:20"
+        }
+    }, {
+        "pk": 10,
+        "model": "story.genre",
+        "fields": {
+            "name": "Mystery",
+            "created": "2010-04-23 04:46:20",
+            "modified": "2010-04-23 04:46:20"
+        }
+    }, {
+        "pk": 11,
+        "model": "story.genre",
+        "fields": {
+            "name": "Romance",
+            "created": "2010-04-23 04:46:20",
+            "modified": "2010-04-23 04:46:20"
+        }
+    }, {
+        "pk": 12,
+        "model": "story.genre",
+        "fields": {
+            "name": "Science Fiction",
+            "created": "2010-04-23 04:46:20",
+            "modified": "2010-04-23 04:46:20"
+        }
+    }, {
+        "pk": 13,
+        "model": "story.genre",
+        "fields": {
+            "name": "Teen",
+            "created": "2010-04-23 04:46:20",
+            "modified": "2010-04-23 04:46:20"
+        }
+    }, {
+        "pk": 14,
+        "model": "story.genre",
+        "fields": {
+            "name": "Thriller",
+            "created": "2010-04-23 04:46:20",
+            "modified": "2010-04-23 04:46:20"
+        }
+    }, {
+        "pk": 1,
+        "model": "story.language",
+        "fields": {
+            "language": "English"
+        }
+    }, {
+        "pk": 1,
+        "model": "story.story",
+        "fields": {
+            "genre": 10,
+            "language": 1,
+            "title": "The Girl With The Dragon Tattoo",
+            "short_description": "Forty years ago, Harriet Vanger disappeared from a family gathering on the island owned and inhabited by Stephen King the powerful Vanger clan. Her body was never found.",
+            "author": "Stieg Larsson",
+            "word_count": 0,
+            "created": "2010-04-23 04:46:20",
+            "modified": "2010-04-23 04:46:20"
+        }
+    }
+]

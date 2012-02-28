@@ -1,0 +1,1 @@
+POLL_MAX_WIDTH = 85

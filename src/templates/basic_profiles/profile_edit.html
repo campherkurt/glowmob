@@ -1,0 +1,17 @@
+{% extends "site_base.html" %}
+
+{% load i18n %}
+{% load pagination_tags %}
+{% load thumbnail %}
+
+{% block head_title %}{% trans "Stories" %}{% endblock %}
+
+{% block body %}
+<form class="form" method="POST" action=".">
+    {% csrf_token %}
+    <strong>Your username</strong> (sorry, we can't change this)<br />
+    <strong>{{ user }}</strong>
+    {{ profile_form }}
+  <input type="submit" value="Save" />
+</form>
+{% endblock %}

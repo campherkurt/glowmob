@@ -1,0 +1,21 @@
+{% extends "site_base.html" %}
+{% load i18n %}
+
+{% block body %}
+<div id="content">
+  <h2>Contact</h2>
+  <div class="padding-wrap">
+	<form method="POST" id="sign-up-form" action="{% url contact %}">
+	  <fieldset>
+    {% csrf_token %}
+	{% for field in form.visible_fields %}
+        {{ field.errors }}
+        {{ field.label_tag }}<br class="clear" />
+        {{ field }}<br class="clear" />
+    {% endfor %}
+		<input type="submit" id="contact-submit" value="Send" />
+	  </fieldset>
+	</form>
+  </div>
+</div>
+{% endblock %}

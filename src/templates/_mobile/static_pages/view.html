@@ -1,0 +1,16 @@
+{% extends "site_base.html" %}
+{% load i18n %}
+
+{% block body %}
+<div id="content">
+    <div class="heading">
+      <span><a href="{% url home %}">Home</a></span>
+    </div>
+    <br class="clear">
+  <div class="padding-wrap">
+    &nbsp;<strong>{{ page.title }}</strong>
+    <br class="clear">
+    {{ page.content|safe }}
+  </div>
+</div>
+{% endblock %}

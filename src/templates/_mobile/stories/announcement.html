@@ -1,0 +1,38 @@
+{% extends "site_base.html" %}
+{% load i18n %}
+{% load thumbnail %}
+
+{% block body %}
+{% if announcement.story %}
+<div id="content">
+  <div class="heading">
+	<span><a href="{% url home %}">Home</a></span><span class="divider">&raquo;</span><a href="{% url stories %}?genre_id={{ announcement.story.genre.id }}">{{ announcement.story.genre }}</a>
+  </div>
+  <ul class="single books">
+	<li>
+		{% if announcement.story.image %}
+	  		<img src="{% thumbnail announcement.story.image 49x70 crop %}" width="49" height="70" alt="" />
+	  {% else %}
+	  		<img src="{{STATIC_URL}}img/mobile/nopic.jpg" width="49" height="59" alt="No Image Available" />
+	  {% endif %}
+	  <span class="author">{{ announcement.story.author }}</span><br />
+	  <a class="title" href="{% url story announcement.story.id %}">{{ announcement.story }}</a>
+	</li>
+  </ul>
+</div>
+{% else %}
+<div id="content">
+  <div class="heading">
+    <span><a href="{% url home %}">Home</a></span>
+  </div>
+</div>
+{% endif %}
+<div class="box">
+    <p>
+    <strong>{{ announcement.announcement }}</strong><br/>
+    {% if announcement.body %}
+    	{{ announcement.body }}
+    {% endif %}
+    </p>
+</div>
+{% endblock %}

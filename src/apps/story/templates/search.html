@@ -1,0 +1,14 @@
+{% load i18n %}
+<div id="library-search">
+  <h2>Search Our Library</h2>
+  <div class="padding-wrap">
+	<form method="GET" id="library-search-form" action="{% url search %}">
+	  <fieldset>
+	    {% csrf_token %}
+        {{ form }}
+		<input type="submit" id="library-search-submit" value="Search" />
+	  </fieldset>
+	</form>
+  </div>
+  <br class="clear" />
+</div>

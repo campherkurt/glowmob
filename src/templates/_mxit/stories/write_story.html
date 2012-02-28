@@ -1,0 +1,66 @@
+{% extends "base.html" %}
+{% load i18n %}
+
+{% block header %}
+<br/>
+<strong>{% trans "Cellphone Stories" %}</strong><br>
+{% endblock %}
+
+{% block body %}
+<strong>{% trans "CALLING ALL WRITERS" %}</strong><br><br>
+
+{% if form.is_valid %}
+<p>{% blocktrans %}Thanks very much. Keep writing.{% endblocktrans %}</p>
+{% else %}
+<p>{% blocktrans %}Got an amazing story that you'd love to see on Yoza? Read on ...{% endblocktrans %}</p>
+<p>
+  <strong>{% trans "How this works" %}</strong>
+</p>
+<p>
+{% blocktrans %}
+  If you write a cracking m-novel or book review then you'll be published 
+  on Yoza. Your name will be shown as the author and we'll link to one of 
+  your sites -- your blog perhaps? We won't pay you, but you'll get 
+  exposure on Yoza and great experience of writing for a youth audience 
+  on cellphones.
+{% endblocktrans %}
+</p>
+<p>
+{% blocktrans %}
+  You will keep your copyright in anything original which you write, after
+  all you won't be getting any money from us, but if its published then 
+  it will be published under a {% endblocktrans %}<a href="http://creativecommons.org/licenses/by-sa/2.5/za/" title="Creative Commons &mdash; Attribution-ShareAlike 2.5 South Africa">Creative Commons Attribution Share Alike</a>
+{% blocktrans %}
+  license. That means that other people can freely copy and remix your
+  story and even sell it but they'll have to put their efforts under the 
+  same license so that you, and anyone else can copy and remix and even 
+  sell their creations. You cannot withdraw this license, it lasts as 
+  long as the copyright does.
+{% endblocktrans %}
+</p>
+<p>
+{% blocktrans %}
+  Please note that you can't transfer your copyright to anyone else for
+  thirty days from submission, after that, then whether or not it is 
+  published by Yoza you can transfer the copyright. There are more 
+  detailed {% endblocktrans %}<a href="/static_pages/view/11">{% trans "legal terms here" %}</a>.
+  {% trans "Please read them carefully." %}
+</p>
+<p>
+    {% trans "Last thing: please read the" %} <strong><a href="/static_pages/view/14/">{% trans "Yoza Manifesto" %}</a></strong> {% blocktrans %}-- it explains how to write for Yoza and what kind of stories we publish.{% endblocktrans %}
+</p>
+<p><strong>{% trans "By submitting I agree to the" %} <a href="/static_pages/view/11">{% trans "legal terms" %}</a> {% trans "of submitting my writing and also the Yoza" %} <a href="/static_pages/view/10">{% trans "Terms of Use" %}</a></strong></p>
+<form method="POST" action="{% url write_story %}">
+  {% csrf_token %}
+  {% for field in form.visible_fields %}
+    {% ifequal field.label 'Terms'  %}
+    <input type="hidden" name="{{field.name}}" value="checked">
+    {% else %}
+    {{ field.errors }}
+    {{ field.label }}: {{ field }}<br>
+    {% endifequal %}
+  {% endfor %}
+  <input type="submit" value="Send story" />
+</form>
+{% endif %}
+{% endblock %}

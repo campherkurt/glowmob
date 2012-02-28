@@ -1,0 +1,24 @@
+{% extends "base.html" %}
+
+{% load thumbnail %}
+{% load pagination_tags %}
+{% load i18n %}
+
+{% block header %}
+<br/>
+<strong>{% trans "Cellphone Stories" %}</strong><br>
+{% endblock %}
+
+{% block body %}
+	{% if downloads %}
+		{% autopaginate downloads 5 %}
+		{% for download in downloads %}
+	    	<a href="{{ MEDIA_URL }}{{ download.download }}" onclick="window.open(this.href); return false;">{{ download }}</a><br>
+		{% endfor %}
+		
+		{% paginate %}
+	{% else %}
+		<p>{% trans "No downloads available." %}</p>
+	{% endif %}
+<a href="{% url story story.id %}">{% trans "Back" %}</a>
+{% endblock %}

@@ -1,0 +1,32 @@
+{% extends "site_base.html" %}
+{% load i18n %}
+{% load thumbnail %}
+{% block head_title %}: {{ page.title }}{% endblock %}
+
+{% block body %}
+<div id="content">
+  <div class="heading">
+    <span><a href="{% url home %}">Home</a></span>
+    {% if story.genre %}
+    <span class="divider">&raquo;</span><a href="{% url stories %}?genre_id={{story.genre.pk}}">{{ story.genre }}</a>
+    {% endif %}
+  </div>
+  <ul class="single books">
+	<li>
+      <img src="{% thumbnail story.image 49x70 crop %}" width="49" height="70" alt="" />
+      <span class="author">{{ story.author }}</span><br />
+      <a class="title" href="{% url story story.id %}">{{ story }}</a>
+	</li>
+  </ul>
+  <div class="heading">{{ page.title }}</div>
+<p>
+    {{ page.content|safe }}
+</p>
+{% if back %}
+<p>
+<a href="{{ back }}">Back</a>
+{% endif %}
+</p>
+</div>
+
+{% endblock %}

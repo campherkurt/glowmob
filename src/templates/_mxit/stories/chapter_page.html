@@ -1,0 +1,35 @@
+{% extends "base.html" %}
+{% load basic_profile_tags %}
+{% load i18n %}
+
+{% load thumbnail %}
+{% load pagination_tags %}
+{% load poll_tag %}
+{% block header %}
+<br/>
+<strong>{% trans "Cellphone Stories" %}</strong><br><br>
+{% endblock %}
+{% block body %}
+{% profilepreference display_mxit_images %}
+    {% if chapter.story.series %}
+        <img width="115" height="19" alt="x" src="{% thumbnail chapter.story.series.banner 115x19 crop %}" />
+    {% else %}
+        {% if chapter.story.image %}
+            <img width="40" height="40" alt="x" src="{% thumbnail chapter.story.image 40x40 crop %}" />
+        {% endif %}
+    {% endif %}
+{% else %}
+    {% if chapter.story.series %}
+        {{chapter.story.series.title|upper}}
+    {% endif %}
+{% endprofilepreference %}
+<br>
+<strong>{{ chapter.story }}</strong><br><br>
+
+<a href="{% url chapter chapter.id %}?p={{ p }}">{% trans "Read" %} {{ chapter }}</a><BR>
+<a href="{% url chapter_comments chapter.id %}?p={{ p }}">{% trans "Comments for" %} {{ chapter }} ({{chapter.comment_set.count}})</a><BR>
+<a href="{% url chapter_comment chapter.id %}?p={{ p }}">{% trans "Post your comment" %}</a><br /><BR>
+
+<a href="{% url chapters chapter.story.id %}">{% trans "Back" %}</a>
+<br/><br/>
+{% endblock %}

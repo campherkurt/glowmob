@@ -1,0 +1,29 @@
+{% extends "site_base.html" %}
+{% load i18n %}
+{% load thumbnail %}
+
+{% block body %}
+<div id="content">
+  <div class="heading">
+    <span><a href="{% url home %}">Home</a></span>
+  </div>
+</div>
+
+<div class="box">
+  <h2>{{ competition }}</h2>
+  <br>{{ competition.description|safe }}<br>
+  <form id="post-comment-form" method="POST" action="{% url site_competition competition.pk %}">
+	<fieldset>
+    {% csrf_token %}
+    {% for field in form.visible_fields %}
+        {{ field.errors }}
+        {{ field.label_tag }}<br class="clear" />
+        {{ field }}<br class="clear" />
+    {% endfor %}
+      <input type="submit" id="login-submit" value="Enter" />
+      <input type="hidden" name="next" value="{% url home %}" />
+      <input type="hidden" name="back" value="{{ back }}" />
+	</fieldset>
+  </form>
+</div>
+{% endblock %}

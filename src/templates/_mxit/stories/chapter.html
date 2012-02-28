@@ -1,0 +1,55 @@
+{% extends "base.html" %}
+{% load basic_profile_tags %}
+
+{% load thumbnail %}
+{% load i18n %}
+{% load cache %}
+{% load pagination_tags %}
+{% load poll_tag %}
+{% block header %}
+<br/>
+<strong>{% trans "Cellphone Stories" %}</strong><br>
+{% endblock %}
+{% block body %}
+<br>
+{% profilepreference display_mxit_images %}
+    {% if chapter.story.series %}
+        <img width="115" height="19" alt="x" src="{% thumbnail chapter.story.series.banner 115x19 crop %}" />
+    {% else %}
+        {% if chapter.story.image %}
+    <img width="40" height="40" alt="x" src="{% thumbnail chapter.story.image 40x40 crop %}" />
+        {% endif %}
+    {% endif %}
+{% else %}
+    {% if chapter.story.series %}
+        {{chapter.story.series.title|upper}}
+    {% endif %}
+{% endprofilepreference %}
+<br>
+<strong>{{ chapter.story }}</strong><br>
+<strong>{{ chapter }}</strong><br>
+{% profilepreference display_mxit_images %}
+    {% if chapter.image %}
+        <img width="128" height="160" alt="x" src="{% thumbnail chapter.image 128x160 crop %}" />
+    {% endif %}
+{% endprofilepreference %}
+{{ chapter.body|safe }}
+<br>
+{% if prev_chapter %}
+<a href="{% url chapter prev_chapter.id %}?p={{ prev_page }}">{% trans "Previous Chapter" %}</a>
+{% endif %}
+{% if next_chapter %}
+<a href="{% url chapter next_chapter.id %}?p={{ next_page }}">{% trans "Next Chapter" %}</a>
+{% endif %}
+<br>
+<br />
+<a href="{% url chapter_comments chapter.id %}?p={{ p }}&back={% url chapter chapter.id %}?p={{ p }}">{% trans "See" %} {{ chapter }} {% trans "comments" %} ({{chapter.comment_set.count}})</a><BR>
+<a href="{% url chapter_comment chapter.id %}?p={{ p }}">{% trans "Post your comment" %}</a><br /><BR>
+<br>
+<br>
+{% show_poll_mxit request user chapter %}
+<br>
+<a href="{% url story chapter.story.pk %}?p={{ p }}">{% trans "Back" %}</a>
+<br/>
+<br/>
+{% endblock %}

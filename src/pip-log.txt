@@ -1,0 +1,112 @@
+Downloading/unpacking sorl.thumbnail
+  Getting page http://pypi.python.org/simple/sorl.thumbnail
+  Could not fetch URL http://pypi.python.org/simple/sorl.thumbnail: HTTP Error 404: Not Found (sorl.thumbnail does not have any releases)
+  Will skip URL http://pypi.python.org/simple/sorl.thumbnail when looking for download links for sorl.thumbnail
+  Getting page http://pypi.python.org/simple/
+  Real name of requirement sorl.thumbnail is sorl-thumbnail
+  URLs to search for versions for sorl.thumbnail:
+  * http://pypi.python.org/simple/sorl-thumbnail/
+  Getting page http://pypi.python.org/simple/sorl-thumbnail/
+  Getting page http://code.google.com/p/sorl-thumbnail/
+  Skipping page http://sorl-thumbnail.googlecode.com/files/sorl-thumbnail-3.2.5.tar.gz (from http://pypi.python.org/simple/sorl-thumbnail/) because of Content-Type: application/x-gzip
+  Skipping page http://sorl-thumbnail.googlecode.com/files/sorl-thumbnail-3.2.4.tar.gz (from http://pypi.python.org/simple/sorl-thumbnail/) because of Content-Type: 
+  Skipping page http://sorl-thumbnail.googlecode.com/files/sorl-thumbnail-3.2.2.tar.gz (from http://pypi.python.org/simple/sorl-thumbnail/) because of Content-Type: 
+  Skipping page http://sorl-thumbnail.googlecode.com/files/sorl-thumbnail-3.2.3.tar.gz (from http://pypi.python.org/simple/sorl-thumbnail/) because of Content-Type: 
+  Analyzing links from page http://pypi.python.org/simple/sorl-thumbnail/
+    Skipping link http://code.google.com/p/sorl-thumbnail/ (from http://pypi.python.org/simple/sorl-thumbnail/); not a file
+    Skipping link http://sorl-thumbnail.googlecode.com/files/sorl-thumbnail-3.2.5.tar.gz (from http://pypi.python.org/simple/sorl-thumbnail/); wrong project name (not sorl.thumbnail)
+    Skipping link http://sorl-thumbnail.googlecode.com/files/sorl-thumbnail-3.2.4.tar.gz (from http://pypi.python.org/simple/sorl-thumbnail/); wrong project name (not sorl.thumbnail)
+    Skipping link http://sorl-thumbnail.googlecode.com/files/sorl-thumbnail-3.2.2.tar.gz (from http://pypi.python.org/simple/sorl-thumbnail/); wrong project name (not sorl.thumbnail)
+    Skipping link http://sorl-thumbnail.googlecode.com/files/sorl-thumbnail-3.2.3.tar.gz (from http://pypi.python.org/simple/sorl-thumbnail/); wrong project name (not sorl.thumbnail)
+    Skipping link http://thumbnail.sorl.net/docs/ (from http://pypi.python.org/simple/sorl-thumbnail/); not a file
+  Analyzing links from page http://code.google.com/p/sorl-thumbnail/
+    Skipping link http://www.gstatic.com/codesite/ph/images/phosting.ico (from http://code.google.com/p/sorl-thumbnail/); unknown archive format: .ico
+    Skipping link http://www.gstatic.com/codesite/ph/7043840071698542517/css/ph_core.css (from http://code.google.com/p/sorl-thumbnail/); unknown archive format: .css
+    Skipping link http://www.gstatic.com/codesite/ph/7043840071698542517/css/ph_detail.css (from http://code.google.com/p/sorl-thumbnail/); unknown archive format: .css
+    Skipping link http://www.gstatic.com/codesite/ph/7043840071698542517/css/d_ie.css (from http://code.google.com/p/sorl-thumbnail/); unknown archive format: .css
+    Skipping link https://www.google.com/accounts/ServiceLogin?service=code&amp;ltmpl=phosting&amp;continue=http%3A%2F%2Fcode.google.com%2Fp%2Fsorl-thumbnail%2F&amp;followup=http%3A%2F%2Fcode.google.com%2Fp%2Fsorl-thumbnail%2F (from http://code.google.com/p/sorl-thumbnail/); not a file
+    Skipping link http://www.firefox.com (from http://code.google.com/p/sorl-thumbnail/); not a file
+    Skipping link http://www.google.com/chrome (from http://code.google.com/p/sorl-thumbnail/); not a file
+    Skipping link http://code.google.com/p/sorl-thumbnail/downloads/list (from http://code.google.com/p/sorl-thumbnail/); not a file
+    Skipping link http://code.google.com/p/sorl-thumbnail/w/list (from http://code.google.com/p/sorl-thumbnail/); not a file
+    Skipping link http://code.google.com/p/sorl-thumbnail/issues/list (from http://code.google.com/p/sorl-thumbnail/); not a file
+    Skipping link http://code.google.com/p/sorl-thumbnail/source/checkout (from http://code.google.com/p/sorl-thumbnail/); not a file
+    Skipping link http://code.google.com/p/sorl-thumbnail/updates/list (from http://code.google.com/p/sorl-thumbnail/); not a file
+    Skipping link http://code.google.com/p/sorl-thumbnail/people/list (from http://code.google.com/p/sorl-thumbnail/); not a file
+    Skipping link http://www.opensource.org/licenses/bsd-license.php (from http://code.google.com/p/sorl-thumbnail/); unknown archive format: .php
+    Skipping link http://code.google.com/hosting/search?q=label:django (from http://code.google.com/p/sorl-thumbnail/); not a file
+    Skipping link http://code.google.com/hosting/search?q=label:python (from http://code.google.com/p/sorl-thumbnail/); not a file
+    Skipping link http://code.google.com/hosting/search?q=label:thumbnail (from http://code.google.com/p/sorl-thumbnail/); not a file
+    Skipping link http://code.google.com/hosting/search?q=label:thumbnails (from http://code.google.com/p/sorl-thumbnail/); not a file
+    Skipping link http://code.google.com/hosting/search?q=label:image (from http://code.google.com/p/sorl-thumbnail/); not a file
+    Skipping link http://code.google.com/p/sorl-thumbnail/wiki/Future (from http://code.google.com/p/sorl-thumbnail/); not a file
+    Skipping link http://code.google.com/p/sorl-thumbnail/feeds (from http://code.google.com/p/sorl-thumbnail/); not a file
+    Skipping link http://code.google.com/u/@UhlXRFdZDxhDWAk%3D/ (from http://code.google.com/p/sorl-thumbnail/); not a file
+    Skipping link http://code.google.com/u/smileychris/ (from http://code.google.com/p/sorl-thumbnail/); not a file
+    Skipping link http://code.google.com/projecthosting/terms.html (from http://code.google.com/p/sorl-thumbnail/); unknown archive format: .html
+    Skipping link http://www.google.com/privacy.html (from http://code.google.com/p/sorl-thumbnail/); unknown archive format: .html
+    Skipping link http://code.google.com/p/support/ (from http://code.google.com/p/sorl-thumbnail/); not a file
+    Skipping link http://code.google.com/projecthosting/ (from http://code.google.com/p/sorl-thumbnail/); not a file
+  Could not find any downloads that satisfy the requirement sorl.thumbnail
+No distributions at all found for sorl.thumbnail
+Exception information:
+Traceback (most recent call last):
+  File "/home/werner/workspace/env-pinax/lib/python2.6/site-packages/pip-0.6.1-py2.6.egg/pip.py", line 482, in main
+    self.run(options, args)
+  File "/home/werner/workspace/env-pinax/lib/python2.6/site-packages/pip-0.6.1-py2.6.egg/pip.py", line 675, in run
+    requirement_set.install_files(finder, force_root_egg_info=self.bundle)
+  File "/home/werner/workspace/env-pinax/lib/python2.6/site-packages/pip-0.6.1-py2.6.egg/pip.py", line 2422, in install_files
+    url = finder.find_requirement(req_to_install, upgrade=self.upgrade)
+  File "/home/werner/workspace/env-pinax/lib/python2.6/site-packages/pip-0.6.1-py2.6.egg/pip.py", line 1485, in find_requirement
+    raise DistributionNotFound('No distributions at all found for %s' % req)
+DistributionNotFound: No distributions at all found for sorl.thumbnail
+------------------------------------------------------------
+/home/werner/workspace/env-pinax/bin/pip run on Mon Jul 26 15:39:33 2010
+Downloading/unpacking announcements
+  Getting page http://pypi.python.org/simple/announcements
+  Could not fetch URL http://pypi.python.org/simple/announcements: HTTP Error 404: Not Found (announcements does not have any releases)
+  Will skip URL http://pypi.python.org/simple/announcements when looking for download links for announcements
+  Getting page http://pypi.python.org/simple/
+  URLs to search for versions for announcements:
+  * http://pypi.python.org/simple/announcements/
+  Getting page http://pypi.python.org/simple/announcements/
+  Could not fetch URL http://pypi.python.org/simple/announcements/: HTTP Error 404: Not Found (announcements does not have any releases)
+  Will skip URL http://pypi.python.org/simple/announcements/ when looking for download links for announcements
+  Could not find any downloads that satisfy the requirement announcements
+No distributions at all found for announcements
+Exception information:
+Traceback (most recent call last):
+  File "/home/werner/workspace/env-pinax/lib/python2.6/site-packages/pip-0.6.1-py2.6.egg/pip.py", line 482, in main
+    self.run(options, args)
+  File "/home/werner/workspace/env-pinax/lib/python2.6/site-packages/pip-0.6.1-py2.6.egg/pip.py", line 675, in run
+    requirement_set.install_files(finder, force_root_egg_info=self.bundle)
+  File "/home/werner/workspace/env-pinax/lib/python2.6/site-packages/pip-0.6.1-py2.6.egg/pip.py", line 2422, in install_files
+    url = finder.find_requirement(req_to_install, upgrade=self.upgrade)
+  File "/home/werner/workspace/env-pinax/lib/python2.6/site-packages/pip-0.6.1-py2.6.egg/pip.py", line 1485, in find_requirement
+    raise DistributionNotFound('No distributions at all found for %s' % req)
+DistributionNotFound: No distributions at all found for announcements
+------------------------------------------------------------
+/home/werner/workspace/env-pinax/bin/pip run on Mon Jul 26 15:54:26 2010
+Downloading/unpacking wakawaka
+  Getting page http://pypi.python.org/simple/wakawaka
+  Could not fetch URL http://pypi.python.org/simple/wakawaka: HTTP Error 404: Not Found (wakawaka does not have any releases)
+  Will skip URL http://pypi.python.org/simple/wakawaka when looking for download links for wakawaka
+  Getting page http://pypi.python.org/simple/
+  URLs to search for versions for wakawaka:
+  * http://pypi.python.org/simple/wakawaka/
+  Getting page http://pypi.python.org/simple/wakawaka/
+  Could not fetch URL http://pypi.python.org/simple/wakawaka/: HTTP Error 404: Not Found (wakawaka does not have any releases)
+  Will skip URL http://pypi.python.org/simple/wakawaka/ when looking for download links for wakawaka
+  Could not find any downloads that satisfy the requirement wakawaka
+No distributions at all found for wakawaka
+Exception information:
+Traceback (most recent call last):
+  File "/home/werner/workspace/env-pinax/lib/python2.6/site-packages/pip-0.6.1-py2.6.egg/pip.py", line 482, in main
+    self.run(options, args)
+  File "/home/werner/workspace/env-pinax/lib/python2.6/site-packages/pip-0.6.1-py2.6.egg/pip.py", line 675, in run
+    requirement_set.install_files(finder, force_root_egg_info=self.bundle)
+  File "/home/werner/workspace/env-pinax/lib/python2.6/site-packages/pip-0.6.1-py2.6.egg/pip.py", line 2422, in install_files
+    url = finder.find_requirement(req_to_install, upgrade=self.upgrade)
+  File "/home/werner/workspace/env-pinax/lib/python2.6/site-packages/pip-0.6.1-py2.6.egg/pip.py", line 1485, in find_requirement
+    raise DistributionNotFound('No distributions at all found for %s' % req)
+DistributionNotFound: No distributions at all found for wakawaka

@@ -1,0 +1,36 @@
+{% extends "site_base.html" %}
+
+{% load i18n %}
+{% load pagination_tags %}
+
+{% block head_title %}{% trans "Genres" %}{% endblock %}
+
+{% block body %}
+    {% autopaginate announcements 10 %}
+    <div id="content_block">
+    <h1 style="border-bottom: none; margin-bottom: 0;">Updates</h1>
+
+    {% if announcements %}
+
+	    <div id="stories">
+	    {% for announcement in announcements %}
+			<div id="item_wrapper">
+		      	<div class="announcement_time">{{ announcement.created|timesince}} ago</div>
+		      	<div class="announcement_content">
+		      		{% if announcement.story %}
+		      			<a href=" {% url story announcement.story.id %}" >{{ announcement.announcement }}</a>
+	      			{% else %}
+	      				{{ announcement.announcement }}
+	      			{% endif %}
+	      		</div>
+	      	</div>
+	    {% endfor %}
+	    
+	{% endif %}
+	</div>
+
+    {% paginate %}
+{% endblock %}
+
+{% block poll %}
+{% endblock %}

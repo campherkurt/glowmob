@@ -1,0 +1,27 @@
+
+    {% extends "admin/change_form.html" %}
+
+    {% block extrahead %}{{ block.super }}
+    <script type='text/javascript'>
+     $(document).ready(function(){
+    	 $("#id_object_id").attr("readonly", true)
+    	 $(".object_id").append("<div id='lookup_box'></div>");
+    	 //$("#id_object_id").val()
+	 	 $("#id_content_type").change(function () {
+	 	 //$("#id_object_id").val('')
+          var type = $("#id_content_type option:selected").text();
+          var good_choice = true;
+          if (type == 'city' || type == 'state' || type == 'country' || type == 'region' || true) {
+			  var link_root = '../../../story/';
+			  $("#lookup_box").html("<a onclick='return showRelatedObjectLookupPopup(this);' id='lookup_id_object_id' class='related-lookup' href='../../../common/region/'>lookup</a>");
+	          $("#lookup_id_object_id").text("Lookup " + type);
+	          $("#lookup_id_object_id").attr('href', link_root + type + '/');
+          } else {
+          	  $("#lookup_box").html("<span class='related-lookup' style='color: red;'>Invalid Choice! - Pick City, State, Country or Region</span>");
+          }
+        })
+        .change();
+     });
+    </script>
+    
+    {% endblock %}

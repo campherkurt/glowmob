@@ -1,0 +1,32 @@
+{% extends "site_base.html" %}
+
+{% load i18n %}
+{% load pagination_tags %}
+{% load thumbnail %}
+
+{% block head_title %}{% trans "Stories" %}{% endblock %}
+
+{% block body %}
+<h1>
+  <a href="{% url genres %}">Books</a>&nbsp;&raquo;&nbsp;{{ story.genre }}
+</h1>
+<div id="story">
+  <dl>
+    <dt>
+      <img width="40" height="40" alt="x" src="{% thumbnail story.image 40x40 crop %}" />
+    </dt>
+    <dd>
+      <span class="author">{{ story.author }}</span><br />
+      {{ story }}
+    </dd>
+  </dl>
+</div>
+<h1>Post Comment</h1>
+<form class="form" method="POST" action="{% url tc_comment content_type.id story.id %}">
+    {% csrf_token %}
+    {{ form }}
+  <input type="submit" value="Save" />
+  <input type="hidden" name="next" value="{% url story story.id %}" />
+  <!--<input type="hidden" name="prev" value="{% url comment story.id %}?error" />-->
+</form>
+{% endblock %}

@@ -1,0 +1,46 @@
+{% extends "base.html" %}
+{% load i18n %}
+
+{% block header %}
+<br/>
+<strong>{% trans "Cellphone Stories" %}</strong><br>
+{% endblock %}
+
+{% block body %}
+<br>
+<strong>{% trans "ALL STORIES" %}</strong><br><br>
+
+<!--<strong>BROWSE BY TITLE:</strong><br>
+<a href="{% url stories_by_title_range %}?r=a-e">A - E</a><br>
+<a href="{% url stories_by_title_range %}?r=f-j">F - J</a><br>
+<a href="{% url stories_by_title_range %}?r=k-o">K - O</a><br>
+<a href="{% url stories_by_title_range %}?r=p-t">P - T</a><br>
+<a href="{% url stories_by_title_range %}?r=u-z">U - Z</a><br><br>
+
+<strong>BROWSE BY AUTHOR:</strong><br>
+<a href="{% url stories_by_author_range %}?r=a-e">A - E</a><br>
+<a href="{% url stories_by_author_range %}?r=f-j">F - J</a><br>
+<a href="{% url stories_by_author_range %}?r=k-o">K - O</a><br>
+<a href="{% url stories_by_author_range %}?r=p-t">P - T</a><br>
+<a href="{% url stories_by_author_range %}?r=u-z">U - Z</a><br><br>-->
+
+<strong>{% trans "BROWSE BY LANGUAGE:" %}</strong><br>
+{% for language in languages %}
+<a href="{% url stories %}?language_id={{ language.id }}">{{ language }}</a><br>
+{% endfor %}
+<br>
+<strong>{% trans "BROWSE BY CATEGORY:" %}</strong><br>
+{% for genre in genres %}
+<a href="{% url stories %}?genre_id={{ genre.id }}">{{ genre }}</a><br>
+{% endfor %}
+
+<!--View stories by: <br>
+<a href="{% url stories_by_title %}">Title</a><br>
+<a href="{% url stories_by_author %}">Author</a><br>
+<a href="{% url genres %}">Genre</a>-->
+<br>
+<br>
+<a href="{% url home %}">{% trans "Back" %}</a>
+<br>
+<br>
+{% endblock %}

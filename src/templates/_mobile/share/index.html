@@ -1,0 +1,15 @@
+{% extends "site_base.html" %}
+{% load i18n %}
+{% load thumbnail %}
+
+{% block body %}
+<div class="box">
+  <h2>Share</h2>
+  <p>
+	<b>Tell your friends on:</b><br />
+	<a id="facebook" href="http://www.facebook.com/sharer.php?u=http://{{ domain }}"><img src="{{ STATIC_URL }}img/mobile/facebook.jpg" alt="" /></a>
+    <a id="twitter" href="http://twitter.com/?status=http://{{ domain }}"><img src="{{ STATIC_URL }}img/mobile/twitter.jpg" alt="" /></a>
+  </p>
+  <br class="clear" />
+</div>
+{% endblock %}

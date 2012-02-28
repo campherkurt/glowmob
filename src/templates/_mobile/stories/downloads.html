@@ -1,0 +1,44 @@
+{% extends "site_base.html" %}
+{% load i18n %}
+{% load thumbnail %}
+
+{% block body %}
+<div id="content">
+  <div class="heading">
+    <span>Books</span><span class="divider">&raquo;</span><a href="{% url story story.id %}">{{ story }}</a>
+  </div>
+  <ul class="single books">
+	<li>
+      <img src="{% thumbnail story.image 49x70 crop %}" width="49" height="70" alt="" />
+      <span class="author">{{ story.author }}</span><br />
+      <a class="title" href="{% url story story.id %}">{{ story }}</a>
+	</li>
+  </ul>
+</div>
+<div class="box">
+  <div class="padding-wrap">
+{% if not wallpapers and not ringtones %}
+<p>There are no downloads available for this story</p>
+{% endif %}
+{% if wallpapers %}
+    <h4>Wallpapers</h4>
+    <ul id="wallpapers">
+      {% for wallpaper in wallpapers %}
+      <li><a href="{% url story_download wallpaper.id %}"><img src="{% thumbnail wallpaper.download 50x45 crop %}" alt="" width="50" height="45"/></a></li>
+      {% endfor %}
+	</ul>
+	<br class="clear" />
+	<br />
+{% endif %}
+{% if ringtones %}
+    <h4>Ringtones</h4>
+    <ul id="ringtones">
+      {% for ringtone in ringtones %}
+	  <li><a href="{% url story_download ringtone.id %}">{{ ringtone.download }}</li>
+      {% endfor %}
+	</ul>
+	<br class="clear" />
+{% endif %}
+  </div>
+</div>
+{% endblock %}

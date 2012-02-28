@@ -1,0 +1,36 @@
+{% load thumbnail %}
+{% if poll %}
+<div id="poll">
+  <h2>Vote</h2>
+  <p>
+    {# {% if poll.image %} #}
+    {#     <img width="48" height="73" alt="" src="{% thumbnail poll.image 48x73 crop %}" /> #}
+    {#     {% else %} #}
+    {#     <img src="{{STATIC_URL}}img/mobile/nopic.jpg" width="49" height="59" alt="No Image Available" /> #}
+    {#     {% endif %} #}
+	{{ poll.question }}
+  </p>
+    {% if results %}
+  <div id="results">
+        {% for result in results %}
+	<p>{{result.choice}}</p>
+
+    <div id="answer-1" style="width:{{result.div_size}}%;"></div><span class="percentage">{{result.persentage}} %</span>
+
+        {% endfor %}
+    <br class="clear" />
+  </div>
+    {% else %}
+  <form action="" method="post">
+        {% csrf_token %}
+		{% for choice in poll.choice_set.all %}
+    <input type="radio" name="choice" id="choice{{ forloop.counter }}" value="{{ choice.id }}" />
+	<label for="choice{{ forloop.counter }}">{{ choice.choice }}</label><br />
+        {% endfor %}
+	<input type="hidden" name="poll_id" value="{{ poll.id }}" />
+	<input type="submit" id="poll-submit" value="Vote" />
+  </form>
+  <br class="clear" />
+	{% endif %}
+</div>
+{% endif %}

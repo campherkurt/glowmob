@@ -1,0 +1,925 @@
+# SOME DESCRIPTIVE TITLE.
+# Copyright (C) YEAR THE PACKAGE'S COPYRIGHT HOLDER
+# This file is distributed under the same license as the PACKAGE package.
+# FIRST AUTHOR <EMAIL@ADDRESS>, YEAR.
+#
+#, fuzzy
+msgid ""
+msgstr ""
+"Project-Id-Version: PACKAGE VERSION\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2010-09-21 09:42+0200\n"
+"PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
+"Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
+"Language-Team: LANGUAGE <LL@li.org>\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+
+#: apps/account/forms.py:59 apps/account/forms.py:411
+#: apps/account/forms.py:536
+msgid "Password"
+msgstr ""
+
+#: apps/account/forms.py:63
+msgid "Remember Me"
+msgstr ""
+
+#: apps/account/forms.py:64
+msgid "If checked you will stay logged in for 3 weeks"
+msgstr ""
+
+#: apps/account/forms.py:75 apps/account/forms.py:162
+#: apps/account/forms.py:347 apps/account/forms.py:433
+#: apps/basic_profiles/forms.py:48
+msgid "E-mail"
+msgstr ""
+
+#: apps/account/forms.py:80 apps/account/forms.py:534
+msgid "Username"
+msgstr ""
+
+#: apps/account/forms.py:108
+msgid "This account is currently inactive."
+msgstr ""
+
+#: apps/account/forms.py:111
+msgid "The e-mail address and/or password you specified are not correct."
+msgstr ""
+
+#: apps/account/forms.py:113
+msgid "The username and/or password you specified are not correct."
+msgstr ""
+
+#: apps/account/forms.py:128
+msgid "* Choose a username(no spaces, 4-16 chars)"
+msgstr ""
+
+#: apps/account/forms.py:133
+msgid "* Choose a password"
+msgstr ""
+
+#: apps/account/forms.py:137
+msgid "* Password (again)"
+msgstr ""
+
+#: apps/account/forms.py:142
+msgid "Mobile Number"
+msgstr ""
+
+#: apps/account/forms.py:143
+msgid "Region"
+msgstr ""
+
+#: apps/account/forms.py:150 apps/basic_profiles/forms.py:38
+msgid "* Date of Birth"
+msgstr ""
+
+#: apps/account/forms.py:151
+msgid "I agree to the Yoza Terms of Use"
+msgstr ""
+
+#: apps/account/forms.py:165 apps/basic_profiles/forms.py:51
+msgid "E-mail (optional)"
+msgstr ""
+
+#: apps/account/forms.py:170
+msgid "Usernames can only contain letters, numbers and underscores."
+msgstr ""
+
+#: apps/account/forms.py:172
+msgid "Usernames must be between 4 - 16 characters."
+msgstr ""
+
+#: apps/account/forms.py:177
+msgid "This username is already taken. Please choose another."
+msgstr ""
+
+#: apps/account/forms.py:186
+msgid "A user is registered with this e-mail address."
+msgstr ""
+
+#: apps/account/forms.py:256
+msgid "Your e-mail address has already been verified"
+msgstr ""
+
+#: apps/account/forms.py:266 apps/account/forms.py:276
+#, python-format
+msgid "Confirmation e-mail sent to %(email)s"
+msgstr ""
+
+#: apps/account/forms.py:355
+msgid "This e-mail address already associated with this account."
+msgstr ""
+
+#: apps/account/forms.py:356
+msgid "This e-mail address already associated with another account."
+msgstr ""
+
+#: apps/account/forms.py:380
+msgid "Current Password"
+msgstr ""
+
+#: apps/account/forms.py:384 apps/account/forms.py:475
+msgid "New Password"
+msgstr ""
+
+#: apps/account/forms.py:388 apps/account/forms.py:479
+msgid "New Password (again)"
+msgstr ""
+
+#: apps/account/forms.py:394
+msgid "Please type your current password."
+msgstr ""
+
+#: apps/account/forms.py:400 apps/account/forms.py:422
+#: apps/account/forms.py:491
+msgid "You must type the same password each time."
+msgstr ""
+
+#: apps/account/forms.py:415
+msgid "Password (again)"
+msgstr ""
+
+#: apps/account/forms.py:440
+msgid "E-mail address not verified for any user account"
+msgstr ""
+
+#: apps/account/forms.py:460
+msgid "Password reset e-mail sent"
+msgstr ""
+
+#: apps/account/forms.py:505 templates/account/base.html:21
+msgid "Timezone"
+msgstr ""
+
+#: apps/account/forms.py:519 templates/account/base.html:20
+msgid "Language"
+msgstr ""
+
+#: apps/account/models.py:20 apps/account/models.py:37
+#: apps/account/models.py:116 apps/basic_profiles/models.py:30
+msgid "user"
+msgstr ""
+
+#: apps/account/models.py:22
+msgid "timezone"
+msgstr ""
+
+#: apps/account/models.py:23
+msgid "language"
+msgstr ""
+
+#: apps/account/models.py:38
+msgid "Other Service Info Key"
+msgstr ""
+
+#: apps/account/models.py:39
+msgid "Other Service Info Value"
+msgstr ""
+
+#: apps/account/models.py:118
+msgid "temp_key"
+msgstr ""
+
+#: apps/account/models.py:119
+msgid "timestamp"
+msgstr ""
+
+#: apps/account/models.py:120
+msgid "reset yet?"
+msgstr ""
+
+#: apps/account/openid_consumer.py:120 apps/account/views.py:89
+#: apps/account/views.py:136
+#, python-format
+msgid "Successfully logged in as %(user)s."
+msgstr ""
+
+#: apps/account/views.py:167 apps/account/views.py:182
+#, python-format
+msgid "Confirmation email sent to %(email)s"
+msgstr ""
+
+#: apps/account/views.py:198
+#, python-format
+msgid "Removed email address %(email)s"
+msgstr ""
+
+#: apps/account/views.py:238 apps/account/views.py:366
+msgid "Password successfully changed."
+msgstr ""
+
+#: apps/account/views.py:268
+msgid "Password successfully set."
+msgstr ""
+
+#: apps/account/views.py:395
+msgid "Timezone successfully updated."
+msgstr ""
+
+#: apps/account/views.py:421
+msgid "Language successfully updated."
+msgstr ""
+
+#: apps/account/views.py:459
+msgid "Twitter authentication failed"
+msgstr ""
+
+#: apps/account/views.py:464
+msgid "Successfully authenticated."
+msgstr ""
+
+#: apps/account/views.py:492
+msgid "Removed twitter account information successfully."
+msgstr ""
+
+#: apps/announcement/models.py:5 apps/story/models.py:156
+msgid "Announcement"
+msgstr ""
+
+#: apps/basic_profiles/forms.py:17
+#: apps/basic_profiles/templates/profile_item.html:9 apps/genre/models.py:5
+#: apps/story/models.py:21 apps/story/models.py:180
+msgid "Name"
+msgstr ""
+
+#: apps/basic_profiles/forms.py:23
+msgid "Surname"
+msgstr ""
+
+#: apps/basic_profiles/forms.py:29
+msgid "Email Address"
+msgstr ""
+
+#: apps/basic_profiles/models.py:31 apps/threadedcomments/models.py:173
+#: apps/threadedcomments/models.py:280
+msgid "name"
+msgstr ""
+
+#: apps/basic_profiles/models.py:32
+msgid "about"
+msgstr ""
+
+#: apps/basic_profiles/models.py:33
+msgid "location"
+msgstr ""
+
+#: apps/basic_profiles/models.py:34
+msgid "website"
+msgstr ""
+
+#: apps/basic_profiles/models.py:35
+msgid "mobile number"
+msgstr ""
+
+#: apps/basic_profiles/models.py:36
+msgid "Date of Birth"
+msgstr ""
+
+#: apps/basic_profiles/models.py:38
+msgid "City/Town"
+msgstr ""
+
+#: apps/basic_profiles/models.py:39
+msgid "User Type"
+msgstr ""
+
+#: apps/basic_profiles/models.py:41
+msgid "profile"
+msgstr ""
+
+#: apps/basic_profiles/models.py:42
+msgid "profiles"
+msgstr ""
+
+#: apps/basic_profiles/templates/profile_item.html:10
+msgid "About"
+msgstr ""
+
+#: apps/basic_profiles/templates/profile_item.html:11
+msgid "Location"
+msgstr ""
+
+#: apps/basic_profiles/templates/profile_item.html:12
+msgid "Website"
+msgstr ""
+
+#: apps/contact/forms.py:19
+msgid "Enter a valid email address or mobile number."
+msgstr ""
+
+#: apps/contact/models.py:5
+msgid "Your Name"
+msgstr ""
+
+#: apps/contact/models.py:6
+msgid "Your cellphone number or email address"
+msgstr ""
+
+#: apps/contact/models.py:7
+msgid "Your message"
+msgstr ""
+
+#: apps/friends_app/views.py:33
+#, python-format
+msgid "Accepted friendship request from %(from_user)s"
+msgstr ""
+
+#: apps/friends_app/views.py:45
+#, python-format
+msgid "Declined friendship request from %(from_user)s"
+msgstr ""
+
+#: apps/friends_app/views.py:108
+#, python-format
+msgid "%(total)s vCards found, %(imported)s contacts imported."
+msgstr ""
+
+#: apps/friends_app/views.py:122 apps/friends_app/views.py:133
+#, python-format
+msgid "%(total)s people with email found, %(imported)s contacts imported."
+msgstr ""
+
+#: apps/general/models.py:12 apps/static_pages/models.py:12
+#: apps/story/models.py:29 apps/story/models.py:40 apps/story/models.py:59
+#: apps/story/models.py:91 apps/story/models.py:142 apps/story/models.py:169
+msgid "Title"
+msgstr ""
+
+#: apps/polls/models.py:12
+msgid "Question"
+msgstr ""
+
+#: apps/polls/models.py:63
+msgid "Choice"
+msgstr ""
+
+#: apps/story/forms.py:23
+msgid "Comment is required."
+msgstr ""
+
+#: apps/story/forms.py:34
+msgid "Response is required."
+msgstr ""
+
+#: apps/story/forms.py:45
+msgid "You need to provide either your cellphone number or your email address."
+msgstr ""
+
+#: apps/story/forms.py:48
+msgid "You must agree to the terms before submitting your story."
+msgstr ""
+
+#: apps/story/models.py:32 apps/story/models.py:170
+msgid "Description"
+msgstr ""
+
+#: apps/story/models.py:57
+msgid "Is public on Yoza"
+msgstr ""
+
+#: apps/story/models.py:60 apps/story/models.py:93
+msgid "Short Description"
+msgstr ""
+
+#: apps/story/models.py:61
+msgid "Author"
+msgstr ""
+
+#: apps/story/models.py:63
+msgid "Publisher"
+msgstr ""
+
+#: apps/story/models.py:66 apps/story/models.py:143
+msgid "Type"
+msgstr ""
+
+#: apps/story/models.py:67
+msgid "Word Count"
+msgstr ""
+
+#: apps/story/models.py:68
+msgid "Include in latest on homepage"
+msgstr ""
+
+#: apps/story/models.py:94 apps/story/models.py:157
+msgid "Body"
+msgstr ""
+
+#: apps/story/models.py:181
+msgid "Number"
+msgstr ""
+
+#: apps/story/models.py:182
+msgid "Your entry"
+msgstr ""
+
+#: apps/threadedcomments/admin.py:18 apps/threadedcomments/admin.py:32
+msgid "Content"
+msgstr ""
+
+#: apps/threadedcomments/admin.py:20 apps/threadedcomments/admin.py:33
+msgid "Meta"
+msgstr ""
+
+#: apps/threadedcomments/admin.py:31
+msgid "Parent"
+msgstr ""
+
+#: apps/threadedcomments/forms.py:15 apps/threadedcomments/forms.py:34
+#: apps/threadedcomments/models.py:172 apps/threadedcomments/models.py:290
+msgid "comment"
+msgstr ""
+
+#: apps/threadedcomments/models.py:20
+msgid "markdown"
+msgstr ""
+
+#: apps/threadedcomments/models.py:21
+msgid "textile"
+msgstr ""
+
+#: apps/threadedcomments/models.py:22
+msgid "restructuredtext"
+msgstr ""
+
+#: apps/threadedcomments/models.py:24
+msgid "plaintext"
+msgstr ""
+
+#: apps/threadedcomments/models.py:158 apps/threadedcomments/models.py:273
+msgid "object ID"
+msgstr ""
+
+#: apps/threadedcomments/models.py:168 apps/threadedcomments/models.py:285
+msgid "date/time submitted"
+msgstr ""
+
+#: apps/threadedcomments/models.py:169 apps/threadedcomments/models.py:286
+msgid "date/time modified"
+msgstr ""
+
+#: apps/threadedcomments/models.py:170 apps/threadedcomments/models.py:287
+msgid "date/time approved"
+msgstr ""
+
+#: apps/threadedcomments/models.py:174
+msgid "cell number"
+msgstr ""
+
+#: apps/threadedcomments/models.py:180 apps/threadedcomments/models.py:294
+msgid "is public"
+msgstr ""
+
+#: apps/threadedcomments/models.py:181 apps/threadedcomments/models.py:295
+msgid "is approved"
+msgstr ""
+
+#: apps/threadedcomments/models.py:182 apps/threadedcomments/models.py:296
+msgid "Status"
+msgstr ""
+
+#: apps/threadedcomments/models.py:184 apps/threadedcomments/models.py:299
+msgid "IP address"
+msgstr ""
+
+#: apps/threadedcomments/models.py:251
+msgid "Threaded Comment"
+msgstr ""
+
+#: apps/threadedcomments/models.py:252
+msgid "Threaded Comments"
+msgstr ""
+
+#: apps/threadedcomments/models.py:281
+msgid "site"
+msgstr ""
+
+#: apps/threadedcomments/models.py:282
+msgid "e-mail address"
+msgstr ""
+
+#: apps/threadedcomments/models.py:359
+msgid "Free Threaded Comment"
+msgstr ""
+
+#: apps/threadedcomments/models.py:360
+msgid "Free Threaded Comments"
+msgstr ""
+
+#: templates/base.html:38
+msgid "Hide announcement"
+msgstr ""
+
+#: templates/base.html:70 templates/_mobile/base.html:35
+msgid "clear"
+msgstr ""
+
+#: templates/homepage.html:6 templates/_mobile/homepage.html:6
+msgid "Welcome"
+msgstr ""
+
+#: templates/homepage.html:12 templates/_mobile/homepage.html:12
+msgid "Welcome to Pinax"
+msgstr ""
+
+#: templates/homepage.html:15 templates/_mobile/homepage.html:15
+msgid ""
+"\n"
+"        <b>Pinax</b> is a <a href=\"http://djangoproject.com/\">Django</a>\n"
+"        project intended to provide a starting point for websites. By\n"
+"        integrating numerous reusable Django apps to take care of the\n"
+"        things that many sites have in common, it lets you focus on what\n"
+"        makes your site different.\n"
+"        "
+msgstr ""
+
+#: templates/homepage.html:25 templates/_mobile/homepage.html:25
+msgid ""
+"\n"
+"        For more information about Pinax, see\n"
+"        <a href=\"http://pinaxproject.com/\">http://pinaxproject.com/</a>.\n"
+"        "
+msgstr ""
+
+#: templates/homepage.html:31 templates/_mobile/homepage.html:31
+msgid "About this project"
+msgstr ""
+
+#: templates/homepage.html:34 templates/_mobile/homepage.html:34
+msgid ""
+"\n"
+"        This project demonstrates a social networking site. It provides\n"
+"        profiles, friends, photos, blogs, tribes, wikis, tweets, bookmarks,\n"
+"        swaps, locations and user-to-user messaging.\n"
+"        "
+msgstr ""
+
+#: templates/homepage.html:41 templates/_mobile/homepage.html:41
+msgid ""
+"\n"
+"        In 0.5 this was called \"complete_project\".\n"
+"        "
+msgstr ""
+
+#: templates/homepage.html:49 templates/_mobile/homepage.html:49
+#, python-format
+msgid "Wondering <a href=\"%(what_next_url)s\">What Next</a>?"
+msgstr ""
+
+#: templates/homepage.html:54 templates/_mobile/homepage.html:54
+#, python-format
+msgid ""
+"You can <a href=\"%(signup_url)s\">Sign up</a> and <a href=\"%(login_url)s"
+"\">Log in</a> to try out the site."
+msgstr ""
+
+#: templates/homepage.html:56 templates/_mobile/homepage.html:56
+#, python-format
+msgid "You can <a href=\"%(login_url)s\">Log in</a> to try out the site."
+msgstr ""
+
+#: templates/site_base.html:36 templates/_mobile/site_base.html:37
+msgid "Account"
+msgstr ""
+
+#: templates/site_base.html:36 templates/_mobile/site_base.html:37
+msgid "Admin"
+msgstr ""
+
+#: templates/site_base.html:36 templates/_mobile/site_base.html:37
+msgid "Logout"
+msgstr ""
+
+#: templates/site_base.html:38 templates/_mobile/site_base.html:39
+#: templates/account/login.html:8
+msgid "Login"
+msgstr ""
+
+#: templates/site_base.html:38 templates/_mobile/site_base.html:39
+msgid "or"
+msgstr ""
+
+#: templates/site_base.html:38 templates/_mobile/site_base.html:39
+msgid "Sign up"
+msgstr ""
+
+#: templates/site_base.html:53
+msgid "&copy; 2010 The Shuttleworth Foundation"
+msgstr ""
+
+#: templates/_mobile/account/login.html:6 templates/account/login.html:16
+msgid "Log In"
+msgstr ""
+
+#: templates/_mobile/account/password_reset.html:7
+#: templates/_mobile/account/password_reset_done.html:7
+#: templates/account/login.html:20
+msgid "Note"
+msgstr ""
+
+#: templates/_mobile/account/password_reset.html:7
+#: templates/_mobile/account/password_reset_done.html:7
+#: templates/account/login.html:20
+#, python-format
+msgid "you are already logged in as %(user_display)s."
+msgstr ""
+
+#: templates/_mobile/account/password_reset.html:11
+#: templates/_mobile/account/password_reset_done.html:10
+msgid "Password Reset"
+msgstr ""
+
+#: templates/_mobile/account/password_reset_from_key.html:7
+msgid "Bad Token"
+msgstr ""
+
+#: templates/_mobile/account/password_reset_from_key.html:7
+#: templates/account/base.html:13
+msgid "Change Password"
+msgstr ""
+
+#: templates/_mobile/account/password_reset_from_key.html:11
+#, python-format
+msgid ""
+"The password reset link was invalid, possibly because it has already been "
+"used.  Please request a <a href=\"%(passwd_reset_url)s\">new password reset</"
+"a>."
+msgstr ""
+
+#: templates/about/what_next.html:6 templates/about/what_next.html.py:9
+msgid "What Next?"
+msgstr ""
+
+#: templates/about/what_next.html:46
+#, python-format
+msgid ""
+"Start by <a href=\"%(signup_url)s\">signing up</a> and <a href=\"%(login_url)"
+"s\">logging in</a>."
+msgstr ""
+
+#: templates/about/what_next.html:48
+#, python-format
+msgid "Start by <a href=\"%(login_url)s\">logging in</a>."
+msgstr ""
+
+#: templates/account/base.html:10
+msgid "E-Mail Addresses"
+msgstr ""
+
+#: templates/account/base.html:11
+msgid "OpenID Associations"
+msgstr ""
+
+#: templates/account/base.html:15
+msgid "Set Password"
+msgstr ""
+
+#: templates/account/base.html:18
+msgid "Delete Password"
+msgstr ""
+
+#: templates/account/base.html:22
+msgid "Avatar"
+msgstr ""
+
+#: templates/account/base.html:23 templates/account/other_services.html:5
+#: templates/account/other_services.html:9
+msgid "Other Services"
+msgstr ""
+
+#: templates/account/login.html:27
+msgid "Forgot password?"
+msgstr ""
+
+#: templates/account/login.html:34
+msgid "Log in &raquo;"
+msgstr ""
+
+#: templates/account/other_services.html:10
+msgid "Twitter"
+msgstr ""
+
+#: templates/account/other_services.html:15
+msgid "You have already authorized a twitter account."
+msgstr ""
+
+#: templates/account/other_services.html:16
+msgid "Change your account with this form."
+msgstr ""
+
+#: templates/account/other_services.html:25
+msgid "save"
+msgstr ""
+
+#: templates/account/signup.html:6
+msgid "Signup"
+msgstr ""
+
+#: templates/account/signup.html:9
+msgid "Sign Up"
+msgstr ""
+
+#: templates/account/signup.html:12
+msgid "You are already logged in."
+msgstr ""
+
+#: templates/account/signup.html:22
+msgid "Sign Up &raquo;"
+msgstr ""
+
+#: templates/admin/index.html:80
+#, python-format
+msgid "Models available in the %(name)s application."
+msgstr ""
+
+#: templates/admin/index.html:81
+#, python-format
+msgid "%(name)s"
+msgstr ""
+
+#: templates/admin/index.html:91
+msgid "Add"
+msgstr ""
+
+#: templates/admin/index.html:97
+msgid "Change"
+msgstr ""
+
+#: templates/admin/index.html:107
+msgid "You don't have permission to edit anything."
+msgstr ""
+
+#: templates/admin/index.html:115
+msgid "Recent Actions"
+msgstr ""
+
+#: templates/admin/index.html:116
+msgid "My Actions"
+msgstr ""
+
+#: templates/admin/index.html:120
+msgid "None available"
+msgstr ""
+
+#: templates/admin/index.html:134
+msgid "Unknown content"
+msgstr ""
+
+#: templates/basic_profiles/profile_edit.html:7
+#: templates/stories/chapter_comment.html:7
+#: templates/stories/chapter_vote.html:7 templates/stories/comment.html:7
+#: templates/stories/competition.html:7 templates/stories/downloads.html:7
+#: templates/stories/index.html:7 templates/stories/search.html:7
+#: templates/stories/share.html:7 templates/stories/story.html:10
+#: templates/stories/vote.html:7
+msgid "Stories"
+msgstr ""
+
+#: templates/friends_app/contacts.html:7
+#: templates/friends_app/contacts.html:10
+msgid "Contacts"
+msgstr ""
+
+#: templates/friends_app/contacts.html:24
+msgid "upload"
+msgstr ""
+
+#: templates/friends_app/contacts.html:34
+msgid "Import Google Contacts"
+msgstr ""
+
+#: templates/friends_app/contacts.html:51
+msgid "Import Yahoo Address Book"
+msgstr ""
+
+#: templates/friends_app/contacts.html:86
+msgid "No contacts."
+msgstr ""
+
+#: templates/friends_app/invitations.html:6
+#: templates/friends_app/invitations.html:9
+msgid "Invitations"
+msgstr ""
+
+#: templates/friends_app/invitations.html:11
+#: templates/friends_app/invite.html:5 templates/friends_app/invite.html:9
+#: templates/friends_app/invite_facebox.html:3
+msgid "Invite someone new to join"
+msgstr ""
+
+#: templates/friends_app/invitations.html:13
+msgid "Friendship Requests Received"
+msgstr ""
+
+#: templates/friends_app/invitations.html:28
+msgid "accept"
+msgstr ""
+
+#: templates/friends_app/invitations.html:34
+msgid "decline"
+msgstr ""
+
+#: templates/friends_app/invitations.html:48
+msgid "No friendship requests received."
+msgstr ""
+
+#: templates/friends_app/invitations.html:52
+msgid "Friendship Requests Sent"
+msgstr ""
+
+#: templates/friends_app/invitations.html:65
+msgid "No friendship requests sent."
+msgstr ""
+
+#: templates/friends_app/invitations.html:69
+msgid "Join Requests Sent"
+msgstr ""
+
+#: templates/friends_app/invitations.html:87
+msgid "No join requests sent."
+msgstr ""
+
+#: templates/friends_app/invite.html:11
+msgid ""
+"If you'd like to invite someone to join Pinax, you can enter their email "
+"address and a message for them below:"
+msgstr ""
+
+#: templates/friends_app/invite_form.html:11
+msgid "Someone with this email address has already joined:"
+msgstr ""
+
+#: templates/genres/index.html:6 templates/stories/genres.html:6
+#: templates/stories/updates.html:6
+msgid "Genres"
+msgstr ""
+
+#: templates/genres/index.html:10 templates/stories/browse.html:34
+#: templates/stories/genres.html:10
+msgid "Browse Categories"
+msgstr ""
+
+#: templates/notification/single.html:7 templates/notification/single.html:10
+msgid "Notice"
+msgstr ""
+
+#: templates/photos/base.html:18
+msgid "Latest Photos"
+msgstr ""
+
+#: templates/photos/base.html:19
+msgid "Your Photos"
+msgstr ""
+
+#: templates/photos/base.html:20
+msgid "Friends' Photos"
+msgstr ""
+
+#: templates/photos/base.html:21
+msgid "Upload a Photo"
+msgstr ""
+
+#: templates/stories/browse.html:7
+msgid "Browse"
+msgstr ""
+
+#: templates/stories/browse.html:31
+msgid "Search"
+msgstr ""
+
+#: templates/stories/chapter.html:9
+msgid "Chapter"
+msgstr ""
+
+#: templates/tags/index.html:17
+msgid "Tags"
+msgstr ""
+
+#: templates/tags/index.html:20
+msgid "All Photos Matching "
+msgstr ""
+
+#: templates/tags/index.html:66
+msgid "All Blog Posts Matching "
+msgstr ""
+
+#: templates/tags/index.html:69
+msgid "These are blog posts from everyone:"
+msgstr ""
+
+#: templates/tags/index.html:77
+#, python-format
+msgid "All Tribes Matching <i>%(tag)s</i>"
+msgstr ""
+
+#: templates/tags/index.html:86
+#, python-format
+msgid "All Tribe Topics Matching <i>%(tag)s</i>"
+msgstr ""
+
+#: templates/tags/index.html:93
+#, python-format
+msgid "All Wiki Articles Matching <i>%(tag)s</i>"
+msgstr ""

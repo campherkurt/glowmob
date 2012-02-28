@@ -1,0 +1,43 @@
+{% extends "site_base.html" %}
+
+{% load i18n %}
+{% load pagination_tags %}
+{% load thumbnail %}
+
+{% block head_title %}{% trans "Browse" %}{% endblock %}
+
+{% block body %}
+    {% autopaginate genres 5 %}
+    <div id="stories">
+      <a href="{% url browse %}">New Books</a> | <a href="{% url browse %}?popular">Popular Now</a>
+    {% for story in stories %}
+      <dl>
+        <dt>
+          <img width="36" height="36" alt="x" src="{% thumbnail story.image 36x36 crop %}" />
+        </dt>
+        <dd>
+          <span class="author">{{ story.author }}</span><br />
+          <a href="{% url story story.id %}">{{ story }}</a>
+        </dd>
+      </dl>
+    {% endfor %}
+    </div>
+    
+    <h1>Search Our Library</h1>
+
+    <form class="search" method="POST" action="{% url search %}">
+        {% csrf_token %}
+        {{ form }}
+        <input type="submit" value="{% trans "Search" %}" />
+    </form>
+    
+    <h1 style="border-bottom: none; margin-bottom: 0;">{% trans "Browse Categories" %}</h1>
+    
+    <div id="genres">
+    {% for genre in genres %}
+      <a href="{% url stories %}?genre_id={{ genre.id }}">{{ genre }} &raquo;</a>
+    {% endfor %}
+    </div>
+
+    {% paginate %}
+{% endblock %}

@@ -1,0 +1,31 @@
+{% extends "site_base.html" %}
+{% load i18n %}
+{% load thumbnail %}
+
+{% block body %}
+<div id="content">
+  <div class="heading">
+    <span>Books</span><span class="divider">&raquo;</span><a href="{% url chapter chapter.id %}?p={{ p }}">{{ chapter.story }} - {{ chapter }}</a>
+  </div>
+  <ul class="single books">
+    <li>
+	  <img src="{% thumbnail chapter.story.image 49x70 crop %}" alt="" width="49" height="70" />
+	  <span class="author">{{ chapter.story.author }}</span><br />
+	  <a class="title" href="{% url story chapter.story.id %}">{{ story }}</a>
+	</li>
+  </ul>
+</div>
+
+<div class="box">
+  <h2>Post Comment</h2>
+  <form id="post-comment-form" method="POST" action="{% url tc_comment content_type.id chapter.id %}">
+	<fieldset>
+    {% csrf_token %}
+    {{ form }}
+      <input type="hidden" name="next" value="{% url chapter chapter.id %}?p={{ p }}" />
+      <input type="hidden" name="p" value="{{ p }}" />
+	  <input type="submit" id="login-submit" value="Save" />
+	</fieldset>
+  </form>
+</div>
+{% endblock %}

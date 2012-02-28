@@ -1,0 +1,32 @@
+{% extends "site_base.html" %}
+
+{% load i18n %}
+{% load pagination_tags %}
+{% load thumbnail %}
+
+{% block head_title %}{% trans "Stories" %}{% endblock %}
+
+{% block body %}
+<h1>
+  <a href="{% url genres %}">Books</a>&nbsp;&raquo;&nbsp;{{ competition.story.genre }}
+</h1>
+<div id="story">
+  <dl>
+    <dt>
+      <img width="40" height="40" alt="x" src="{% thumbnail competition.story.image 40x40 crop %}" />
+    </dt>
+    <dd>
+      <span class="author">{{ competition.story.author }}</span><br />
+      {{ competition.story }}
+    </dd>
+  </dl>
+</div>
+<h1>Enter the competition</h1>
+<form class="form" method="POST" action="{% url competition competition.story.id %}">
+    {% csrf_token %}
+    {{ form }}
+  <input type="submit" value="Enter" />
+  <input type="hidden" name="next" value="{% url story competition.story.id %}?back={{ back }}" />
+  <input type="hidden" name="back" value="{{ back }}" />
+</form>
+{% endblock %}

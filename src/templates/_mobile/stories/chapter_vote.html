@@ -1,0 +1,40 @@
+{% extends "site_base.html" %}
+{% load i18n %}
+{% load thumbnail %}
+
+{% block body %}
+<div id="content">
+  <div class="heading">
+    <span>Books</span><span class="divider">&raquo;</span><a href="{% url chapter chapter.id %}?p={{ p }}">{{ chapter.story }} - {{ chapter }}</a>
+  </div>
+  <ul class="single books">
+    <li>
+    {% if chapter.image %}		
+		<img src="{% thumbnail chapter.image 49x70 crop %}" width="49" height="70" alt="" />
+	  	{% else %}
+	  		<img src="{{STATIC_URL}}img/mobile/nopic.jpg" width="49" height="59" alt="No Image Available" />	
+	  	{% endif %}
+
+	  <span class="author">{{ chapter.story.author }}</span><br />
+	  <a class="title" href="{% url story chapter.story.id %}">{{ chapter.story }}</a>
+	</li>
+  </ul>
+</div>
+
+<div class="box">
+  <h2>Do you like this chapter?</h2>
+{#  <form id="post-comment-form" method="POST" action="{% url chapter_vote chapter.id %}">#}
+{#	<fieldset>#}
+{#	  {% csrf_token %}#}
+{#        {{ form }}#}
+{#      <input type="submit" id="login-submit" name="choice" value="yes" />#}
+{#      <input type="submit" id="login-submit" name="choice" value="no" />#}
+{#      <input type="hidden" name="next" value="{% url chapter chapter.id %}?p={{ p }}"#}
+{#	</fieldset>#}
+    <fieldset>
+      <a href="{% url chapter_vote chapter.id %}?choice=yes&next={% url chapter chapter.id %}?p={{ p }}" id="login-submit">yes</a>
+      <a href="{% url chapter_vote chapter.id %}?choice=no&next={% url chapter chapter.id %}?p={{ p }}" id="login-submit">no</a>
+    </fieldset>
+  </form>
+</div>
+{% endblock %}

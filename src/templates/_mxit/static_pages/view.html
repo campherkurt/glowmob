@@ -1,0 +1,15 @@
+{% extends "site_base.html" %}
+{% load i18n %}
+
+{% block header %}
+<br/>
+<a href="{% url home %}">{% trans "Main Menu" %}</a><br/><br/>
+<strong>{% trans "Cellphone Stories" %}</strong><br><br>
+{% endblock %}
+
+{% block body %}
+<strong>{{page.title|upper}}</strong>
+<br/>
+{{page.content|safe}}
+<br/>
+{% endblock %}

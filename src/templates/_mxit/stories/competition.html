@@ -1,0 +1,23 @@
+{% extends "base.html" %}
+{% load i18n %}
+
+{% block header %}
+<br/>
+<strong>{% trans "Cellphone Stories" %}</strong><br>
+{% endblock %}
+
+{% block body %}
+<h1>{% trans "Enter the competition" %}</h1>
+
+<strong>{{ competition }}</strong><br><br>{{ competition.description|safe }}<br><br>
+<form method="POST" action="{% url competition competition.story.id %}">
+    {% csrf_token %}
+    {% for field in form.visible_fields %}
+        {{ field.errors }}
+        {{ field.label }}: {{ field }}<br>
+    {% endfor %}
+  <input type="submit" value="Enter" />
+  <input type="hidden" name="next" value="{% url story competition.story.id %}?back={{ back }}" />
+  <input type="hidden" name="back" value="{{ back }}" />
+</form>
+{% endblock %}

@@ -1,0 +1,22 @@
+{% extends "base.html" %}
+{% load i18n %}
+
+{% block header %}
+<br/>
+<strong>{% trans "Cellphone Stories" %}</strong><br>
+{% endblock %}
+
+{% block body %}
+<h1>{% trans "Leave your review" %}</h1>
+<form method="POST" action="{% url review story.id %}">
+    {% csrf_token %}
+    {% for field in form.visible_fields %}
+        {{ field.errors }}
+        {{ field.label }}: {{ field }}<br>
+    {% endfor %}
+  <input type="submit" value="Save" />
+  <input type="hidden" name="next" value="{% url story story.id %}?back={{ back }}" />
+  <input type="hidden" name="back" value="{{ back }}" />
+  <!--<input type="hidden" name="prev" value="{% url comment story.id %}?error" />-->
+</form>
+{% endblock %}

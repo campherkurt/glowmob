@@ -1,0 +1,42 @@
+{% extends "base.html" %}
+{% load i18n %}
+
+{% block header %}
+<br/>
+<strong>{% trans "Cellphone Stories" %}</strong><br>
+{% endblock %}
+
+{% block body %}
+<br>
+<strong>{% trans "LISTEN UP!" %}</strong><br>
+Yoza cellphone stories are short, hip and free. Read them, leave comments and 
+vote. Some of our stories are published every day -- like a soapie on your 
+phone. New stories are published on the 1st of every month.
+<br/>
+
+{% if announcements %}
+    <a href="{% url announcements %}">{% trans "Listen Up!" %}</a><br/>
+    <br/>
+{% endif %}
+
+{% if competitions %}
+    <strong>COMPETITIONS</strong><br/>
+    {% for competition in competitions %}
+        <a href="{% url site_competition competition.pk %}">{{competition.title}}</a><br/>
+    {% endfor %}
+    <br/>
+{% endif %}
+
+{% if stories.exists %}
+    <br/>
+    <strong>{% trans "LATEST STORIES:" %}</strong><br>
+    {% for story in stories %}
+        <a href="{% url story story.id %}">{{ story }}</a><br>
+    {% endfor %}
+{% endif %}
+
+<br>
+{% trans "See" %} <a href="{% url all_stories %}"><strong>{% trans "all stories" %}</strong></a> ...<br><br>
+
+{% blocktrans %}Also try{% endblocktrans %} <strong><a href="{% url stories %}?type=classic">{% trans "Yoza Classics" %}</a></strong> {% blocktrans %}for old, but really good stories, e.g. Romeo and Juliet.{% endblocktrans %} <br><br>
+{% endblock %}

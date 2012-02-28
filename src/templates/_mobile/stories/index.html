@@ -1,0 +1,49 @@
+{% extends "site_base.html" %}
+{% load i18n %}
+{% load pagination_tags %}
+{% load thumbnail %}
+{% load poll_tag %}
+
+{% block body %}
+    {% autopaginate stories 6 %}
+<div id="content">
+  <div class="heading">
+    <span><a href="{% url home %}">Home</a></span>
+    {% if genre %}<span class="divider">»</span><a href="{% url stories %}?genre_id={{ genre.id }}">{{ genre }}</a>{% endif %}
+    {% if language %}<span class="divider">»</span><a href="{% url stories %}?language_id={{ language.id }}">{{ language }}</a>{% endif %}
+    {% if series %}<span class="divider">»</span><a href="{% url stories %}?genre_id={{ stories.0.genre_id }}">{{ stories.0.genre }}</a>{% endif %}
+  </div>
+  {% if series %}
+  <ul class="single">
+	<li>
+	  {% if series.banner %}
+            <div class="sub-heading">
+	  		    <img src="{% thumbnail series.banner 100x20 crop %}" width="100" height="20" alt="" />
+	  		    <br class="clear" />
+	  		</div>
+	  {% endif %}
+	  <br class="clear" />
+	  <p><strong>About: </strong>{{ series.description|safe }}</p>
+	</li>
+  </ul> 
+  {% endif %}
+{% if stories %}
+</div>
+<div id="content">
+  <ul class="list books">
+    {% for story in stories %}
+    <li>
+	  <img src="{% thumbnail story.image 49x70 crop %}" width="49" height="70" alt="" />
+	  <span class="author">{{ story.author }}</span><br />
+	  <a class="title" href="{% url story story.id %}">{{ story }}</a>
+	</li>
+    {% endfor %}
+  </ul>
+{% else %}
+  <p>
+    No books was found
+  </p>
+{% endif %}
+{% paginate %}
+</div>
+{% endblock %}

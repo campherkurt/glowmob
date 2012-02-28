@@ -1,0 +1,18 @@
+@charset "UTF-8";
+/* CSS Document */
+
+/*
+	Colors
+*/
+body, html{
+	background-color:	#000000;
+	color:				#ffffff;
+	font-family:		arial, tahoma, verdana;
+}
+
+/*
+	Links - and with images
+*/
+a, a:link, a:visited, a:active {
+	color:			#ffffff;
+}

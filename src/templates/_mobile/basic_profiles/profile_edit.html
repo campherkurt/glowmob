@@ -1,0 +1,24 @@
+{% extends "site_base.html" %}
+{% load i18n %}
+
+{% block body %}
+<div id="content">
+  <h2>Update your profile</h2>
+  <div class="padding-wrap">
+    <p><b>* = You must enter this info</b></p>
+	<form method="POST" id="profile-form" action="{% url profile_edit %}">
+	  <fieldset>
+	{% csrf_token %}
+        <span><strong>Your username</strong> (sorry, we can't change this)</span><br class="clear" />
+        <span><strong>{{ user }}</strong></span><br class="clear" />
+    {% for field in profile_form.visible_fields %}
+        {{ field.errors }}
+        {{ field.label_tag }}<br class="clear" />
+        {{ field }}<br class="clear" />
+    {% endfor %}
+	    <input type="submit" id="save-submit" value="Save" />
+	  </fieldset>
+	</form>
+  </div>
+</div>
+{% endblock %}

@@ -1,0 +1,24 @@
+{% extends "site_base.html" %}
+{% load i18n %}
+
+{% block header %}
+<br/>
+<strong>{% trans "Cellphone Stories" %}</strong><br><br>
+{% endblock %}
+
+{% block body %}
+{% for announcement in announcements %}
+    {% if announcement.story %}
+        <a href="{% url story announcement.story.id %}">
+            <strong>{{ announcement|upper }}</strong>
+        </a>
+    {% else %}
+        <strong>{{ announcement|upper }}</strong>
+    {% endif %}<br/>
+    {{ announcement.body }}<br/>
+    <br/>
+{% endfor %}
+<br/>
+<a href="{% url home %}">{% trans "Back" %}</a>
+<br/>
+{% endblock %}

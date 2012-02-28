@@ -1,0 +1,33 @@
+{% extends "base.html" %}
+{% load thumbnail %}
+{% load basic_profile_tags %}
+{% load i18n %}
+
+{% block header %}
+<br/>
+<strong>{% trans "Cellphone Stories" %}</strong><br><br>
+{% endblock %}
+
+{% block body %}
+{% profilepreference display_mxit_images %}
+    {% if story.series %}
+        <img width="115" height="19" alt="x" src="{% thumbnail story.series.banner 115x19 crop %}" />
+    {% else %}
+        {% if story.image %}
+            <img width="40" height="40" alt="x" src="{% thumbnail story.image 40x40 crop %}" />
+        {% endif %}
+    {% endif %}
+{% else %}
+    {% if story.series %}
+        {{story.series.title|upper}}
+    {% endif %}
+{% endprofilepreference %}
+<br>
+{% if story %}
+<strong>{{ story }}</strong><br><br>
+{% endif %}
+<strong>{{ page.title }}</strong><br><br>
+{{ page.content|safe }}
+<br><br>
+<a href="{% url story story.id %}">{% trans "Back" %}</a>
+{% endblock %}

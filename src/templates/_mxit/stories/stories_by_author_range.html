@@ -1,0 +1,22 @@
+{% extends "base.html" %}
+
+{% load pagination_tags %}
+
+{% block header %}
+<br/>
+<strong>Cellphone Stories</strong><br>
+{% endblock %}
+
+{% block body %}
+{% autopaginate stories 5 %}
+
+<h1>All stories: By Author: {{ r }}</h1>
+    {% for story in stories %}
+<a href="{% url story story.id %}?back={% url stories_by_author_range %}?r={{ r }}">{{ story }}</a>&nbsp;({{ story.author }})<br>
+    {% endfor %}
+    {% paginate %}
+<br>
+<a href="{% url stories_by_author %}">Back</a>
+<br>
+<br>
+{% endblock %}

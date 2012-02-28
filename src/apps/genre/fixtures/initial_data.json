@@ -1,0 +1,115 @@
+[
+    {
+        "pk": 1,
+        "model": "genre.genre",
+        "fields": {
+            "name": "Adventure",
+            "created": "2010-04-23 04:46:20",
+            "modified": "2010-04-23 04:46:20"
+        }
+    }, {
+        "pk": 2,
+        "model": "genre.genre",
+        "fields": {
+            "name": "Biography & Memoir",
+            "created": "2010-04-23 04:46:20",
+            "modified": "2010-04-23 04:46:20"
+        }
+    }, {
+        "pk": 3,
+        "model": "genre.genre",
+        "fields": {
+            "name": "Childrens",
+            "created": "2010-04-23 04:46:20",
+            "modified": "2010-04-23 04:46:20"
+        }
+    }, {
+        "pk": 4,
+        "model": "genre.genre",
+        "fields": {
+            "name": "Classics",
+            "created": "2010-04-23 04:46:20",
+            "modified": "2010-04-23 04:46:20"
+        }
+    }, {
+        "pk": 5,
+        "model": "genre.genre",
+        "fields": {
+            "name": "Comedy",
+            "created": "2010-04-23 04:46:20",
+            "modified": "2010-04-23 04:46:20"
+        }
+    }, {
+        "pk": 6,
+        "model": "genre.genre",
+        "fields": {
+            "name": "Crime",
+            "created": "2010-04-23 04:46:20",
+            "modified": "2010-04-23 04:46:20"
+        }
+    }, {
+        "pk": 7,
+        "model": "genre.genre",
+        "fields": {
+            "name": "Fantasy",
+            "created": "2010-04-23 04:46:20",
+            "modified": "2010-04-23 04:46:20"
+        }
+    }, {
+        "pk": 8,
+        "model": "genre.genre",
+        "fields": {
+            "name": "History",
+            "created": "2010-04-23 04:46:20",
+            "modified": "2010-04-23 04:46:20"
+        }
+    }, {
+        "pk": 9,
+        "model": "genre.genre",
+        "fields": {
+            "name": "Horror",
+            "created": "2010-04-23 04:46:20",
+            "modified": "2010-04-23 04:46:20"
+        }
+    }, {
+        "pk": 10,
+        "model": "genre.genre",
+        "fields": {
+            "name": "Mystery",
+            "created": "2010-04-23 04:46:20",
+            "modified": "2010-04-23 04:46:20"
+        }
+    }, {
+        "pk": 11,
+        "model": "genre.genre",
+        "fields": {
+            "name": "Romance",
+            "created": "2010-04-23 04:46:20",
+            "modified": "2010-04-23 04:46:20"
+        }
+    }, {
+        "pk": 12,
+        "model": "genre.genre",
+        "fields": {
+            "name": "Science Fiction",
+            "created": "2010-04-23 04:46:20",
+            "modified": "2010-04-23 04:46:20"
+        }
+    }, {
+        "pk": 13,
+        "model": "genre.genre",
+        "fields": {
+            "name": "Teen",
+            "created": "2010-04-23 04:46:20",
+            "modified": "2010-04-23 04:46:20"
+        }
+    }, {
+        "pk": 14,
+        "model": "genre.genre",
+        "fields": {
+            "name": "Thriller",
+            "created": "2010-04-23 04:46:20",
+            "modified": "2010-04-23 04:46:20"
+        }
+    }
+]

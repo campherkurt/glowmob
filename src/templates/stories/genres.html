@@ -1,0 +1,19 @@
+{% extends "site_base.html" %}
+
+{% load i18n %}
+{% load pagination_tags %}
+
+{% block head_title %}{% trans "Genres" %}{% endblock %}
+
+{% block body %}
+    {% autopaginate genres 5 %}
+    <h1 style="border-bottom: none; margin-bottom: 0;">{% trans "Browse Categories" %}</h1>
+
+    <div id="genres">
+    {% for genre in genres %}
+      <a href="{% url stories %}?genre_id={{ genre.id }}">{{ genre }} &raquo;</a>
+    {% endfor %}
+    </div>
+
+    {% paginate %}
+{% endblock %}

@@ -1,0 +1,65 @@
+{% extends "base.html" %}
+{% load basic_profile_tags %}
+
+{% load pagination_tags %}
+{% load thumbnail %}
+{% load i18n %}
+
+{% block header %}
+<br/>
+<strong>{% trans "Cellphone Stories" %}</strong><br><br>
+{% endblock %}
+
+{% block body %}
+{% autopaginate stories 5 %}
+{% if genre %}
+<strong>{% trans "ALL STORIES:" %} {{ genre }}</strong><br><br>
+{% endif %}
+{% if language %}
+<strong>{% trans "ALL STORIES:" %} {{ language }}</strong><br><br>
+{% endif %}
+{% if series %}
+{% profilepreference display_mxit_images %}
+    <img width="115" height="19" alt="x" src="{% thumbnail series.banner 115x19 crop %}" />
+{% else %}
+    {{series.title|upper}}
+{% endprofilepreference %}
+<br>
+<strong>{% trans "About:" %} </strong>{{ series.description }}<br><br>
+{% endif %}
+{% if not genre and not language and not series %}
+<strong>{% trans "ALL STORIES: YOZA CLASSICS" %}</strong><br><br>
+{% endif %}
+    {% for story in stories %}
+    {% if genre %}
+<strong><a href="{% url story story.id %}?back={% url stories %}?genre_id={{ genre.id }}">
+    {% endif %}
+    {% if language %}
+<strong><a href="{% url story story.id %}?back={% url stories %}?language_id={{ language.id }}">
+    {% endif %}
+    {% if series %}
+<strong><a href="{% url story story.id %}?back={% url stories %}?series_id={{ series.id }}">
+    {% endif %}
+    {% if not genre and not language and not series %}
+<strong><a href="{% url story story.id %}?back={% url stories %}?type=classic">
+    {% endif %}
+    {{ story }}</a></strong><br>
+    {% if not series %}
+    {% trans "Author:" %} {{ story.author }}<br>
+    {% if language %}
+        {% trans "Category:" %} {{ story.genre}}<br><br>
+    {% else %}
+        {% trans "Language:" %} {{ story.language}}<br><br>
+    {% endif %}
+    {% endif %}
+    {% endfor %}
+    {% paginate %}
+<br>
+{% if language or genre %}
+<a href="{% url all_stories %}">{% trans "Back" %}</a>
+{% else %}
+<a href="{% url home %}">{% trans "Back" %}</a>
+{% endif %}
+<br>
+<br>
+{% endblock %}
