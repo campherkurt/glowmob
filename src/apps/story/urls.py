@@ -25,6 +25,7 @@ urlpatterns = patterns("",
     url(r"^announcement/(?P<announcement_id>\d+)/$", "apps.story.views.announcement", name="announcement"),
     url(r"^report/(?P<story_id>\d+)/(?P<comment_id>\d+)/$", "apps.story.views.comment_report", name="comment_report"),
     url(r"^chapter_comment_report/(?P<chapter_id>\d+)/(?P<comment_id>\d+)/$", "apps.story.views.chapter_comment_report", name="chapter_comment_report"),
+    url(r"^categories/$", "apps.story.views.categories", name="categories"),
     
     #mxit
     url(r"^all/$", "apps.story.views.all_stories", name="all_stories"),

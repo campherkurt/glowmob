@@ -102,7 +102,6 @@ def home(request):
         stories = stories.order_by("-created")
 
     stories = stories[:5]
-
     return render_to_response("stories/home.html", {
         "stories": stories,
         "announcements": announcements,
@@ -183,7 +182,6 @@ def index(request):
             stories = stories.filter(type=request.GET["type"])
 
     stories = stories.all()
-
     return render_to_response("stories/index.html", {
         "stories": stories,
         "genre": genre,
@@ -200,7 +198,15 @@ def genres(request):
     return render_to_response("stories/genres.html", {
         "genres": genres
     }, context_instance=RequestContext(request))
-    
+
+@vary_on_headers(*CACHE_VARY_ON_HEADERS)
+@cache_page_with_dynamic_key(generate_cache_key_from_request) # 1 minute
+def categories(request):
+    genres = Genre.objects.all()
+    return render_to_response("stories/all_categories.html", {
+        "genres": genres
+    }, context_instance=RequestContext(request))
+
 @vary_on_headers(*CACHE_VARY_ON_HEADERS)
 @cache_page_with_dynamic_key(generate_cache_key_from_request) # 1 minute
 def browse(request):
@@ -222,7 +228,7 @@ def browse(request):
         form = SearchForm()
         
     genres = Genre.objects.all()
-
+    print "####### genres: %s" % genres
     languages = Language.objects.all()
 
     content_type = ContentType.objects.get_for_model(Story)

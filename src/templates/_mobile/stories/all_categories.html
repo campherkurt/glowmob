@@ -1,0 +1,17 @@
+{% extends "site_base.html" %}
+{% load i18n %}
+{% load pagination_tags %}
+{% load thumbnail %}
+{% load poll_tag %}
+
+{% block body %}
+
+<div id="categories">
+  <h2>Browse Categories</h2>
+  <ul class="list">
+ {% for genre in genres %}
+    <li><a href="{% url stories %}?genre_id={{ genre.id }}">{{ genre }}</a></li>
+ {% endfor %}
+  </ul>
+</div>
+{% endblock %}
