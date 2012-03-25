@@ -1,6 +1,6 @@
 /* Resets */
 *{margin: 0; padding: 0;}
-body, h1, h2, h3, h4, h5, p, fieldset{border:0;}
+body, h1, h2, h3, h4, h5, p, fieldset{border:0; background-color: #FFA573}
 li{list-style: none;}
 img {border: none; display: block;}
 .clear{clear: both}
@@ -26,40 +26,43 @@ h2, #nav li a{font-weight: bold; line-height: 24px;}
 /*
 	Global
 */
-a{color: #3399cc;}
+a{color: #FF5c00;}
 h3{color: #999; padding: 5px 0;}
 h4{color: #404040; padding: 5px 0;}
 hr{border: none; border-bottom: 1px solid #fff; border-top: 1px solid #ddd; margin: 10px 0;}
 p{padding: 10px 5px;}
 li p{padding: 0;}
 li p{padding: 0;}
-span.divider{padding: 0 5px;}
+/*span.divider{padding: 0 5px;}*/
 div.padding-wrap{padding: 0 6px;}
-h2, .heading {background: #336699; color: #fff; height: 24px; padding: 0 5px;}
+h2, .heading {background: #A63C00; color: #FF8540; height: 30px; padding: 0 5px; font-family: fantasy;}
 .heading span a { color: #fff; font-size: 100%;}
-h2 a, .heading a{color: #33ccff;}
+h2 a, .heading a{color: #5FD3B3;}
 .books li{height: 70px;}
 #footer p{padding: 0;}
 /*
 	Main Elements
 */
 #page-wrap{margin: 0 auto; max-width: 480px;}
-#header{background: #000; display: block; height: 75px; width: 100%;}
-#header span{color: #33ccff; float: left; padding: 2px 0 0 8px;}
+#header{border: 2px solid blue; display: block; height: 75px; width: 100%;}
+/*#header span{color: #33ccff; float: left; padding: 2px 0 0 8px;}*/
 #login-bar{background: #33ccff; border-bottom: 1px solid #fff; border-top: 1px solid #fff; height: 22px; width: 100%;}
-#nav{background: #336699; margin: 10px 0 0 0; width: 100%;}
+#nav{background: #A63C00; margin: 0 0 0 0; width: 100%;}
 #footer{border: none; margin: 10px 0 0 0;}
 #content, #updates, #poll, #search-form, #categories, #library-search, #comments, #chapters, div.box{margin: 0 0 10px 0; border-bottom: 1px solid #ddd;}
-#content, #updates, #poll, #categories, #library-search, #comments, #chapters, div.box{background: #eee;}
+#content, #updates, #poll, #categories, #library-search, #comments, #chapters, div.box{
+    /*background: #eee; */
+    
+}
 /* Header */
-#header a{display: block; height: 34px; padding: 14px 0 0 7px; width: 115px;}
+#header a{display: block;}
 #login-bar a{color: #404040; }
 /* Nav */
-#nav li{border-bottom: 1px solid #2a5d90; border-top: 1px solid #4876a3; padding: 0 10px;}
-#nav li a{background: url(/site_media/static/img/mobile/nav-arrow.jpg) no-repeat right 8px;  color: #fff; display: block;
-height: 24px; }
+#nav li{border-bottom: 1px solid #FF5c00; border-top: 1px solid #FF5c00; padding: 0 0px;}
+#nav li a{/*background: url(/site_media/static/img/mobile/nav-arrow.jpg) no-repeat right 8px; */  color: #fff; display: block;
+height: 24px; padding-left:10px;}
 /* Content */
-ul.list li{border-bottom: 1px solid #ddd; border-top: 1px solid #fff; padding: 11px 5px;}
+ul.list li{border-bottom: 1px dashed #ddd; border-top: 0px solid #fff; padding: 11px 5px;}
 ul.list li:first-child{border-top: none;}
 ul.list li img, ul.single li img{float: left; padding: 0 4px 0 0;}
 ul.single li{padding: 11px 5px;}
@@ -73,7 +76,7 @@ div.sub-heading{background: #000; padding: 5px; width: 95%;}
 #categories ul.list li a:after{content: ' »';}
 /* Single */
 #comments h2{background: #bfbfbf; color: #404040;}
-#share span.divider{color: #ccc;}
+#share span.divider{color: #FF5C00;}
 #like-count{background: url(/site_media/static/img/mobile/like.jpg) no-repeat left 2px; height: 10px; padding: 0 0 0 18px;}
 #comment-count{background: url(/site_media/static/img/mobile/comment.jpg) no-repeat left 2px; height: 11px; padding: 0 0 0 18px;}
 #comments ol li{margin: 0 0 15px 0; padding: 0 5px;}
@@ -125,3 +128,70 @@ ul#messages .info { background: #DEF; border: 1px solid #9BC; }
 ul#messages .success { background: #EFD; border: 1px solid #BC9; }
 ul#messages .warning { background: #FED; border: 1px solid #CB9; }
 ul#messages .error { background: #FDD; border: 1px solid #C99; }
+
+
+#header_box {
+    /*border: 2px solid green;*/
+    height: 70px;
+    margin-bottom: 10px;
+    width: 100%;
+    
+}
+
+#logo_box {
+    /*border: 2px solid red;*/
+    width: 220px;
+    float: left;
+}
+#user_box {
+    color: #FF5C00;
+    /*border: 2px solid red;*/
+    width: 250px;
+    margin-right: 0px;
+    
+    height: 100%;
+    float: right;
+}
+
+#user_box_place {
+    /*border: 2px solid blue;*/
+    padding-top: 49px;
+    text-align: right;
+    margin-right: 10px;
+    font-size: 25px;
+}
+/* -------------------- */
+
+.user_name a {
+    padding: 0px;
+    margin: 0px;
+    
+}
+
+#header #profile #full-name {
+    margin: 0px;
+    width: 0px;
+    padding: 0px;
+    height: 0px;
+}
+
+#header #full-name {
+    margin: 0px;
+    width: 0px;
+    padding: 0px;
+    height: 0px;
+}
+#header a {
+    width: 0px;
+    padding: 0px;
+    margin: 0px;
+}
+
+.popular_tag {
+    color:#5Fd3B3;
+    
+}
+
+.hello_txt {
+    font-size:20px;
+}

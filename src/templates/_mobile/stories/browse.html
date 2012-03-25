@@ -7,7 +7,7 @@
 {% block body %}
 <div id="content">
   <div class="heading">
-    {% ifequal active_filter "new" %}<span>{% else %}<a href="{% url browse %}">{% endifequal %}New Books{% ifequal active_filter "new" %}</span>{% else %}</a>{% endifequal %}<span class="divider">|</span>{% ifequal active_filter "popular" %}<span>{% else %}<a href="{% url browse %}?popular">{% endifequal %}Popular{% ifequal active_filter "popular" %}</span>{% else %}</a>{% endifequal %}
+    {% ifequal active_filter "new" %}<span>{% else %}<a href="{% url browse %}">{% endifequal %}New Books{% ifequal active_filter "new" %}</span>{% else %}</a>{% endifequal %}<span class="divider">|</span>{% ifequal active_filter "popular" %}<span class="popular_tag">{% else %}<a href="{% url browse %}?popular">{% endifequal %}Popular{% ifequal active_filter "popular" %}</span>{% else %}</a>{% endifequal %}
   </div>
   <ul class="list books">
 {% for story in stories %}
