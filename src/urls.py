@@ -114,88 +114,88 @@ if 'rosetta' in settings.INSTALLED_APPS:
 from apps.story.models import CompetitionEntry, Story, Chapter
 from apps.threadedcomments.models import ThreadedComment
 from apps.basic_profiles.models import Profile
-from export_csv.views import export_csv
-
-urlpatterns += patterns('',
-    url(r'^export/competition/entries\.csv$', export_csv,
-        {
-            'queryset': CompetitionEntry.objects.all(),
-            'not_available': 'n/a',
-            'require_permission': 'competitionentry.export',
-            'export_data':  new_sorted_dict([
-                ('competition.story','Story'),
-                ('competition.title','Competition'),
-                ('user','User'),
-                ('name','Name'),
-                ('number','Number'),
-                ('response','Response'),
-                ('created.date','Date Submitted'),
-                ('created.time','Time Submitted'),
-            ]),
-            'file_name': 'entries.csv',
-        }, "export_competition_entries"),
-    url(r'^export/story/comments\.csv$', export_csv,
-        {
-            'queryset': ThreadedComment.objects.all(),
-            'not_available': 'n/a',
-            'require_permission': 'threadedcomment.export',
-            'export_data':  new_sorted_dict([
-                ('content_type.name','Content Type'),
-                ('get_content_object_str','Content Object'),
-                ('user.id','User ID'),
-                ('user','User'),
-                ('date_submitted.date','Date Submitted'),
-                ('date_submitted.time','Time Submitted'),
-                ('comment','Comment'),
-                ('name','Name'),
-                ('cellphone','Telephone Number'),
-                ('get_status_display', 'Status'),
-            ]),
-            'file_name': 'comments.csv',
-        }, "export_story_comments"),
-    url(r'^export/user/profiles\.csv$', export_csv,
-        {
-            'queryset': Profile.objects.all(),
-            'not_available': 'n/a',
-            'require_permission': 'profile.export',
-            'export_data': new_sorted_dict([
-                ('user','Unique User ID'),
-                ('user.username','Unique User Name'),
-                ('user.email','Email Address'),
-                ('user.first_name','First Name'),
-                ('user.last_name','Last Name'),
-                ('mobile','Phone Number'),
-                ('user.threadedcomment_set.count','Comments Placed'),
-                ('get_user_type_display','User Type'),
-                ('user.date_joined','Date Joined'),
-            ]),
-            'file_name': 'profiles.csv'
-        }, "export_user_profiles"),
-    url(r'^export/story/chapters\.csv$', export_csv,
-        {
-            'queryset': Chapter.objects.all(),
-            'not_available': 'n/a',
-            'require_permission': 'story.export',
-            'export_data': new_sorted_dict([
-                ('story.title','Story'),
-                ('title','Chapter'),
-                ('comment_set.count','Number of comments'),
-                ('stat_set.count','Number of pageviews'),
-            ]),
-            'file_name': 'chapter.csv'
-        }, "export_story_chapter_stats"),
-    url(r'^export/stories\.csv$', export_csv, {
-        'queryset': Story.objects.all(),
-        'not_available': 'n/a',
-        'require_permission': 'story.export',
-        'export_data': new_sorted_dict([
-            ('title','Story'),
-            ('comment_set.count','Number of comments'),
-            ('stat_set.count','Number of pageviews'),
-        ]),
-        'file_name': 'stories.csv'
-    }, 'export_story_stats')
-)
+#from export_csv.views import export_csv
+#
+#urlpatterns += patterns('',
+#    url(r'^export/competition/entries\.csv$', export_csv,
+#        {
+#            'queryset': CompetitionEntry.objects.all(),
+#            'not_available': 'n/a',
+#            'require_permission': 'competitionentry.export',
+#            'export_data':  new_sorted_dict([
+#                ('competition.story','Story'),
+#                ('competition.title','Competition'),
+#                ('user','User'),
+#                ('name','Name'),
+#                ('number','Number'),
+#                ('response','Response'),
+#                ('created.date','Date Submitted'),
+#                ('created.time','Time Submitted'),
+#            ]),
+#            'file_name': 'entries.csv',
+#        }, "export_competition_entries"),
+#    url(r'^export/story/comments\.csv$', export_csv,
+#        {
+#            'queryset': ThreadedComment.objects.all(),
+#            'not_available': 'n/a',
+#            'require_permission': 'threadedcomment.export',
+#            'export_data':  new_sorted_dict([
+#                ('content_type.name','Content Type'),
+#                ('get_content_object_str','Content Object'),
+#                ('user.id','User ID'),
+#                ('user','User'),
+#                ('date_submitted.date','Date Submitted'),
+#                ('date_submitted.time','Time Submitted'),
+#                ('comment','Comment'),
+#                ('name','Name'),
+#                ('cellphone','Telephone Number'),
+#                ('get_status_display', 'Status'),
+#            ]),
+#            'file_name': 'comments.csv',
+#        }, "export_story_comments"),
+#    url(r'^export/user/profiles\.csv$', export_csv,
+#        {
+#            'queryset': Profile.objects.all(),
+#            'not_available': 'n/a',
+#            'require_permission': 'profile.export',
+#            'export_data': new_sorted_dict([
+#                ('user','Unique User ID'),
+#                ('user.username','Unique User Name'),
+#                ('user.email','Email Address'),
+#                ('user.first_name','First Name'),
+#                ('user.last_name','Last Name'),
+#                ('mobile','Phone Number'),
+#                ('user.threadedcomment_set.count','Comments Placed'),
+#                ('get_user_type_display','User Type'),
+#                ('user.date_joined','Date Joined'),
+#            ]),
+#            'file_name': 'profiles.csv'
+#        }, "export_user_profiles"),
+#    url(r'^export/story/chapters\.csv$', export_csv,
+#        {
+#            'queryset': Chapter.objects.all(),
+#            'not_available': 'n/a',
+#            'require_permission': 'story.export',
+#            'export_data': new_sorted_dict([
+#                ('story.title','Story'),
+#                ('title','Chapter'),
+#                ('comment_set.count','Number of comments'),
+#                ('stat_set.count','Number of pageviews'),
+#            ]),
+#            'file_name': 'chapter.csv'
+#        }, "export_story_chapter_stats"),
+#    url(r'^export/stories\.csv$', export_csv, {
+#        'queryset': Story.objects.all(),
+#        'not_available': 'n/a',
+#        'require_permission': 'story.export',
+#        'export_data': new_sorted_dict([
+#            ('title','Story'),
+#            ('comment_set.count','Number of comments'),
+#            ('stat_set.count','Number of pageviews'),
+#        ]),
+#        'file_name': 'stories.csv'
+#    }, 'export_story_stats')
+#)
 
 # downloadable csv files
 urlpatterns += patterns('',
