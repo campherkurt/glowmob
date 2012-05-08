@@ -1,5 +1,0 @@
-#!/bin/bash
-cd /var/praekelt/yoza && \
-source ve/bin/activate && \
-cd yoza && \
-python -W ignore manage.py stats_pageviews $1 
