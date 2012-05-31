@@ -10,7 +10,7 @@ PROJECT_ROOT = os.path.abspath(os.path.dirname(__file__))
 # tells Pinax to use the default theme
 PINAX_THEME = "default"
 
-DEBUG = False
+DEBUG = True
 TEMPLATE_DEBUG = DEBUG
 
 # tells Pinax to serve media through the staticfiles app.
@@ -30,10 +30,10 @@ MANAGERS = ADMINS
 DATABASES = {
     "default": {
         "ENGINE": "mysql", # Add "postgresql_psycopg2", "postgresql", "mysql", "sqlite3" or "oracle".
-        "NAME": "yoza",                       # Or path to database file if using sqlite3.
+        "NAME": "yozatest",                       # Or path to database file if using sqlite3.
         "USER": "root",                             # Not used with sqlite3.
-        "PASSWORD": "trout50",                         # Not used with sqlite3.
-        "HOST": "127.0.0.1",                             # Set to empty string for localhost. Not used with sqlite3.
+        "PASSWORD": "13teen1981",                         # Not used with sqlite3.
+        "HOST": "",                             # Set to empty string for localhost. Not used with sqlite3.
         "PORT": "",                             # Set to empty string for default. Not used with sqlite3.
     }
 }
@@ -122,7 +122,7 @@ CACHE_VARY_ON_HEADERS = (
     'User-Agent',
     'Cookie'
 )
-CACHE_BACKEND = 'memcached://127.0.0.1:11211/'
+CACHE_BACKEND = 'locmem:///?timeout=30'
 
 ROOT_URLCONF = "urls"
 

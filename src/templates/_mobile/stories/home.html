@@ -6,9 +6,10 @@
 
 {% block body %}
 <div id="updates">
-  <h2>Listen Up!</h2>
+  
   <p>
-      Yoza cellphone stories are short, hip and free. Read them, leave 
+      <span class="teal">*</span><span id="">Hello</span><span class="teal">#</span>
+      GlowMob cellphone stories are short, hip and free. Read them, leave 
       comments and vote. Some of our stories are published every day -- like 
       a soapie on your phone. New stories are published on the 1st of every 
       month.
@@ -32,23 +33,31 @@
 {% if stories.exists %}
     <div id="content">
       <div class="heading">
-        {% ifequal active_filter "new" %}<span>{% else %}<a href="{% url home %}">{% endifequal %}LATEST STORIES{% ifequal active_filter "new" %}</span>{% else %}</a>{% endifequal %}<!--<span class="divider">|</span>{% ifequal active_filter "popular" %}<span>{% else %}<a href="{% url home %}?popular">{% endifequal %}Popular{% ifequal active_filter "popular" %}</span>{% else %}</a>{% endifequal %}-->
+        {% ifequal active_filter "new" %}
+            <span class="home_list_title">{% else %}<a href="{% url home %}">{% endifequal %}<span class="pink">*</span>Latest Stories<span class="pink">#</span>{% ifequal active_filter "new" %}</span>{% else %}</a>
+        {% endifequal %}
       </div>
       <ul class="list books">
     {% for story in stories %}
         <li>
         {% if story.series %}
-          <div class="sub-heading"><img src="{% thumbnail story.series.banner 100x20 crop %}" alt="" width="100" height="20" /><br class="clear" /></div>
+          <div class="sub-heading">
+            <img src="{% thumbnail story.series.banner 100x20 crop %}" alt="" width="100" height="20" />
+            <br class="clear" />
+          </div>
         {% else %}
         	{% if story.image %}		
-    		<img src="{% thumbnail story.image 49x70 crop %}" width="49" height="70" alt="" />
+                <img src="{% thumbnail story.image 49x70 crop %}" width="49" height="70" alt="" />
     	  	{% else %}
-    	  		<img src="{{STATIC_URL}}img/mobile/nopic.jpg" width="49" height="59" alt="No Image Available" />	
+                <img src="{{STATIC_URL}}img/mobile/nopic.jpg" width="49" height="59" alt="No Image Available" />	
     	  	{% endif %}
 
         {% endif %}
-    	  <span class="author">{{ story.author }}</span><br />
+    	  <!--span class="author">{{ story.author }}</span><br /-->
     	  <a class="title" href="{% url story story.id %}">{{ story }}</a>
+          <p>{{ story.short_description }}</p>
+          <div class="share_box story_share">
+        </div>
         </li>
     {% endfor %}
       </ul>

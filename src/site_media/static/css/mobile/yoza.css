@@ -1,21 +1,21 @@
 /* Resets */
 *{margin: 0; padding: 0;}
-body, h1, h2, h3, h4, h5, p, fieldset{border:0; background-color: #FFA573}
+body, h1, h2, h3, h4, h5, p, fieldset{border:0; background-color: #FFFFFF}
 li{list-style: none;}
 img {border: none; display: block;}
 .clear{clear: both}
 /* Typography */
 body{font-family: Tahoma, Verdana, Arial, Helvetica; font-size: medium;}
 h2, h3, h4{ font-size: 80%;}
-a, label, li, p, span{font-size:70%;}
+a, label, li, p {font-size:70%;}
 #header span, #content #search-results{font-size: 80%;}
 li p, li span{font-size: 100%;}
 li a, p a{font-size:100%;}
 a{text-decoration: none;}
 a:hover{text-decoration: underline;}
 #post-comment-form label, a.title, #chapters ul li.featured, #comments ol li, #header span, .heading, h2{font-weight: bold;}
-#content .list li span.author, label a, #updates a, #updates span, #categories span{font-size: small;}
-#content .list li a.title{font-size: small; font-weight: bold;}
+#content .list li span.author, label a, #updates a, #categories {font-size: small;}
+#content .list li a.title{font-size: 9px; font-weight: bold; font-family: Arial; }
 h2, #nav li a{font-weight: bold; line-height: 24px;}
 #search-submit, #poll-submit, #sign-up-submit, #login-submit, #recover-submit, #library-search-submit, #share-submit, #save-submit, #contact-submit
 {font-size:70%; font-weight: bold; text-transform: uppercase;}
@@ -26,7 +26,7 @@ h2, #nav li a{font-weight: bold; line-height: 24px;}
 /*
 	Global
 */
-a{color: #FF5c00;}
+a{color: #000000;}
 h3{color: #999; padding: 5px 0;}
 h4{color: #404040; padding: 5px 0;}
 hr{border: none; border-bottom: 1px solid #fff; border-top: 1px solid #ddd; margin: 10px 0;}
@@ -35,10 +35,10 @@ li p{padding: 0;}
 li p{padding: 0;}
 /*span.divider{padding: 0 5px;}*/
 div.padding-wrap{padding: 0 6px;}
-h2, .heading {background: #A63C00; color: #FF8540; height: 30px; padding: 0 5px; font-family: fantasy;}
+h2, .heading {background: #FFFFFF; color: #000000; height: 30px; padding: 0 5px; font-size: 20px}
 .heading span a { color: #fff; font-size: 100%;}
 h2 a, .heading a{color: #5FD3B3;}
-.books li{height: 70px;}
+.books li{height: 130px;}
 #footer p{padding: 0;}
 /*
 	Main Elements
@@ -47,7 +47,7 @@ h2 a, .heading a{color: #5FD3B3;}
 #header{border: 2px solid blue; display: block; height: 75px; width: 100%;}
 /*#header span{color: #33ccff; float: left; padding: 2px 0 0 8px;}*/
 #login-bar{background: #33ccff; border-bottom: 1px solid #fff; border-top: 1px solid #fff; height: 22px; width: 100%;}
-#nav{background: #A63C00; margin: 0 0 0 0; width: 100%;}
+#nav{background: #FFFFFF; margin: 0 0 0 0; width: 100%;}
 #footer{border: none; margin: 10px 0 0 0;}
 #content, #updates, #poll, #search-form, #categories, #library-search, #comments, #chapters, div.box{margin: 0 0 10px 0; border-bottom: 1px solid #ddd;}
 #content, #updates, #poll, #categories, #library-search, #comments, #chapters, div.box{
@@ -58,11 +58,11 @@ h2 a, .heading a{color: #5FD3B3;}
 #header a{display: block;}
 #login-bar a{color: #404040; }
 /* Nav */
-#nav li{border-bottom: 1px solid #FF5c00; border-top: 1px solid #FF5c00; padding: 0 0px;}
-#nav li a{/*background: url(/site_media/static/img/mobile/nav-arrow.jpg) no-repeat right 8px; */  color: #fff; display: block;
+#nav li{border-bottom: 1px solid #DDD; padding: 0 0px;}
+#nav li a{/*background: url(/site_media/static/img/mobile/nav-arrow.jpg) no-repeat right 8px; */  color: #000000; display: block;
 height: 24px; padding-left:10px;}
 /* Content */
-ul.list li{border-bottom: 1px dashed #ddd; border-top: 0px solid #fff; padding: 11px 5px;}
+ul.list li{border-bottom: 1px dashed #ddd; border-top: 0px solid #fff; padding: 15px 5px;}
 ul.list li:first-child{border-top: none;}
 ul.list li img, ul.single li img{float: left; padding: 0 4px 0 0;}
 ul.single li{padding: 11px 5px;}
@@ -129,10 +129,15 @@ ul#messages .success { background: #EFD; border: 1px solid #BC9; }
 ul#messages .warning { background: #FED; border: 1px solid #CB9; }
 ul#messages .error { background: #FDD; border: 1px solid #C99; }
 
+/* ------------------------------------------------------------------------------ */
+#slogan {
+    font-size: 16px;
+    width: 300px;
+}
 
 #header_box {
     /*border: 2px solid green;*/
-    height: 70px;
+    /*height: 70px;*/
     margin-bottom: 10px;
     width: 100%;
     
@@ -141,25 +146,36 @@ ul#messages .error { background: #FDD; border: 1px solid #C99; }
 #logo_box {
     /*border: 2px solid red;*/
     width: 220px;
-    float: left;
+    /*float: left;*/
 }
 #user_box {
     color: #FF5C00;
     /*border: 2px solid red;*/
     width: 250px;
     margin-right: 0px;
-    
+    padding-left: 5px;
     height: 100%;
     float: right;
 }
 
 #user_box_place {
     /*border: 2px solid blue;*/
-    padding-top: 49px;
-    text-align: right;
-    margin-right: 10px;
-    font-size: 25px;
+    /*padding-top: 49px;*/
+    /*text-align: right;*/
+    /*margin-right: 10px;*/
+    font-size: 17px;
+    padding-left: 5px;
 }
+
+#user_box_place span.divider {
+    font-size: 13px;
+}
+
+#content span.home_list_title {
+    font-weight: normal;
+}
+
+
 /* -------------------- */
 
 .user_name a {
@@ -187,6 +203,11 @@ ul#messages .error { background: #FDD; border: 1px solid #C99; }
     margin: 0px;
 }
 
+#updates {
+    margin-top: 25px;
+    padding-top: 10px;
+    border-top: 1px dashed #DDD;
+}
 .popular_tag {
     color:#5Fd3B3;
     
@@ -194,4 +215,54 @@ ul#messages .error { background: #FDD; border: 1px solid #C99; }
 
 .hello_txt {
     font-size:20px;
+}
+
+#updates p span{
+    font-size: 25px;
+}
+
+.red {
+    color: red;
+}
+.blue {
+    color: blue;
+}
+.pink {
+    color: pink;
+}
+.teal {
+    color: teal;
+}
+.light_pink {
+    color: pink;
+}
+
+#adspace {
+    width: 100%;
+    border: 1px dashed grey;
+    height: 60px;
+    margin-bottom: 10px;
+}
+
+.share_box {
+    margin-top: 20px;
+    margin-bottom: 20px;
+}
+
+.story_share {
+    float:right;
+    margin-right: 0px;
+    margin-top: 0px;
+    margin-bottom: 0px;
+}
+
+.facebook_icon {
+    float: left;
+    margin-right: 10px;
+}
+.mail_icon {
+    float: left;
+}
+.twitter_icon {
+    
 }
